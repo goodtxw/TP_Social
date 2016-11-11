@@ -12,12 +12,21 @@
         public function index()
         {
             $inte = new IntegralModel();
-            $data = $inte->relation(true)->field(array('sum(integral)'=>'suminte','u_id'))->group('u_id')->select();
-//var_dump($data);exit;
-            $count = count($data);
+//            $data = $inte->relation(true)->field(array('sum(integral)'=>'suminte','u_id'))->group('u_id')->select();
+
+            // 分页
+            $count = $inte->group('u_id')->count();
+            // 设置分页  总页数/每页数量
             $page = new Page($count,1);
+            // 设置上一页下一页
+            $page->setConfig('prev', '上一页');
+            $page->setConfig('next', '下一页');
+            // 显示分页
             $show = $page->show();
-            $this->assign('list', $data);
+            // 按照分页查询数据
+            $list = $inte->relation(true)->field(array('sum(integral)'=>'suminte','u_id'))->group('u_id')->limit($page->firstRow.','.$page->listRows)->select();
+
+            $this->assign('list', $list);
             $this->assign('page', $show);
             $this->display();
         }
