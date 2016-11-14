@@ -4,7 +4,7 @@ namespace Admin\Controller;
 use Think\Controller;
 use Think\Page;
 
-class UserController extends Controller
+class UserController extends CommonController
 {
     //用户列表
     public function index()

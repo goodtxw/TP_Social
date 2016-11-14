@@ -22,5 +22,18 @@
                 'foreign_key' => 'u_id',
                 'as_fields' => 'name:username',
             ),
+            'Image' => array(
+                'mapping_type' => self::HAS_MANY,
+                'mapping_name' => 'Image',
+                'class_name' => 'Image',
+                'foreign_key' => 'album_id',
+                'condition' => 'cover=1',
+            ),
+            'imageDetial' => array(
+                'mapping_type' => self::HAS_MANY,
+                'mapping_name' => 'imageDetial',
+                'class_name' => 'Image',
+                'foreign_key' => 'album_id',
+            ),
         );
     }

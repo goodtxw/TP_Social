@@ -6,7 +6,7 @@
     use Think\Controller;
     use Think\Page;
 
-    class IntegralController extends Controller
+    class IntegralController extends CommonController
     {
         // 显示每个用户的所有积分
         public function index()
@@ -17,7 +17,7 @@
             // 分页
             $count = $inte->group('u_id')->count();
             // 设置分页  总页数/每页数量
-            $page = new Page($count,1);
+            $page = new Page($count,10);
             // 设置上一页下一页
             $page->setConfig('prev', '上一页');
             $page->setConfig('next', '下一页');

@@ -17,5 +17,8 @@ return array(
 
     // 显示页面Trace信息
     'SHOW_PAGE_TRACE' =>true,
+
+    'PUBLIC' => '/Public',
+    'LOCAL_PATH' => $_SERVER['DOCUMENT_ROOT'] . '/Public',
 );
 

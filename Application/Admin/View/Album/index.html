@@ -18,12 +18,11 @@
             <volist name="list" id="data" key="k">
                 <tr>
                     <td>{{$data.id}}</td>
-                    <td><img src="__PUBLIC__/admin/images/11.jpg" alt="" width="120" height="50" /></td>
+                    <td><img src="__PUBLIC__/admin/images/{{$data.Image.0.name}}" alt="" width="120" height="50" /></td>
                     <td>{{$data.username}}</td>
                     <td>{{$data.time|date='Y-m-d',###}}</td>
                     <td><div class="button-group">
-                        <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-                        <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
+                        <a class="button border-main" href="{{:U('Admin/Album/albumDetial/id/'.$data['id'])}}"><span class="icon-road"></span> 相册图片</a>
                     </div></td>
                 </tr>
             </volist>
