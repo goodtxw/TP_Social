@@ -11,8 +11,5 @@
             "email": "liu21st@gmail.com"
         }
     ],
-    "require": {
-        "php": ">=5.3.0"
-    },
     "minimum-stability": "dev"
 }

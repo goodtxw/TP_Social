@@ -12,8 +12,6 @@
         public function index()
         {
             $inte = new IntegralModel();
-//            $data = $inte->relation(true)->field(array('sum(integral)'=>'suminte','u_id'))->group('u_id')->select();
-
             // 分页
             $count = $inte->group('u_id')->count();
             // 设置分页  总页数/每页数量
@@ -39,6 +37,16 @@
             $data = $inte->relation(true)->where(['u_id'=>['eq', $id]])->select();
 
             $this->assign('list', $data);
+            $this->display();
+        }
+
+        // 按照用户id搜索
+        public function integralSearch($user_id)
+        {
+            $inte = new IntegralModel();
+            $list = $inte->relation(true)->where(['u_id'=>['eq',$user_id]])->field(array('sum(integral)'=>'suminte','u_id'))->group('u_id')->select();
+
+            $this->assign('list', $list);
             $this->display();
         }
     }
