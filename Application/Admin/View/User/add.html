@@ -4,7 +4,7 @@
 <div class="panel admin-panel">
   <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>添加新用户</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">  
+    <form method="post" class="form-x" action="{{:U('User/doadd')}}" enctype="multipart/form-data">
       <div class="form-group">
         <div class="label">
           <label>用户名：</label>
@@ -41,7 +41,7 @@
           <label>头像：</label>
         </div>
         <div class="field">
-          <input type="file" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value="浏览上传"/>
+          <input type="file" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value="浏览上传" data-validate="required:请选择头像"/>
           <!--<input type="file" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">-->
         </div>
       </div>
@@ -52,11 +52,21 @@
           <label></label>
         </div>
         <div class="field">
-          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+          <input type="submit" class="button bg-main icon-check-square-o" value="提交">
         </div>
       </div>
     </form>
   </div>
 </div>
 </block>
-</body></html>
+<block name="script">
+  <if condition="$success eq 1">
+    <script>layer.alert('恭喜您，添加成功！', {icon: 6},function(index){
+      window.location.href="{{:U('User/index')}}";
+    });</script>
+  <elseif condition="$success eq 2"/>
+    <script>layer.alert('添加失败', {icon: 5},function(index){
+      window.location.href="{{:U('User/add')}}";
+    });</script>
+  </if>
+</block>

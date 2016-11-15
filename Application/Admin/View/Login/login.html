@@ -38,19 +38,23 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </block>
 
+=======
+    {{$error}}
+
+</block>
+
+>>>>>>> lilei
 <block name="script">
     <if condition="$error eq 1">
         <script>layer.alert('请输入正确的验证码', {icon: 5});</script>
-    </if>
-    <if condition="$error eq 2">
+    <elseif condition="$error eq 2"/>
         <script>layer.alert('该用户不存在', {icon: 5});</script>
-    </if>
-    <if condition="$error eq 3">
+    <elseif condition="$error eq 3"/>
         <script>layer.alert('该用户已被封禁', {icon: 5});</script>
-    </if>
-    <if condition="$error eq 4">
+    <elseif condition="$error eq 4"/>
         <script>layer.alert('请输入正确的密码', {icon: 5});</script>
     </if>
 </block>
