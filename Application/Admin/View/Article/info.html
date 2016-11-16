@@ -25,7 +25,7 @@
                     <label>作者：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="stitle" value="{{$data.name}}" />
+                    <input type="text" class="input" name="stitle" value="{{$data.username1}}" />
                     <div class="tips"></div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     <label>转自：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="stitle" value="{{$data.name}}" />
+                    <input type="text" class="input" name="stitle" value="{{$data1}}" />
                     <div class="tips"></div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <label>状态权限：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="sentitle" value="<if condition="$data.privacy eq '0'">陌生人可见<else />陌生人不可见</if>" />
+                    <input type="text" class="input" name="sentitle" value='<if condition="$data.privacy eq 0">公开<elseif condition="$data.privacy eq 1" />好友可见<else />仅自己可见</if>' />
                     <div class="tips"></div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     <label>内容：</label>
                 </div>
                 <div class="field">
-                    <textarea name="scopyright" class="input" style="height:120px;"></textarea>
+                    <textarea name="scopyright" class="input" style="height:120px;">{{$data.content}}</textarea>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                     <label>发布时间：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="s_address" value="{{$data.create_time|date='Y-m-d',###}}" />
+                    <input type="text" class="input" name="s_address" value="{{$data.time|date='Y-m-d',###}}" />
                     <div class="tips"></div>
                 </div>
             </div>

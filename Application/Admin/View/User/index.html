@@ -1,21 +1,13 @@
 <extend name="layouts/layout"/>
 
 <block name="content">
-    <form method="post" action="{{:U('User/search')}}" id="listform">
       <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder"> {{$title}}</strong></div>
         <div class="padding border-bottom">
           <ul class="search" style="padding-left:10px;">
             <li> <a class="button border-main icon-plus-square-o" href="{{:U('User/add')}}"> 添加新用户</a> </li>
             <li>搜索：</li>
-            <li>性别
-              <select name="sex" class="input" style="width:60px; line-height:17px; display:inline-block">
-                <option value="">选择</option>
-                <option value="0">男</option>
-                <option value="1">女</option>
-              </select>
-              &nbsp;&nbsp;
-              状态
+            <li>&nbsp;状态&nbsp;
               <select id="select2" name="status" class="input" style="width:60px; line-height:17px;display:inline-block">
                 <option value="">选择</option>
                 <option value="0">启用</option>
@@ -24,10 +16,12 @@
               &nbsp;&nbsp;
             </li>
             <li>
-              <input type="text" placeholder="请输入搜索关键字" name="name" class="input" style="width:250px; line-height:17px;display:inline-block" />
-                <input type="submit" class="button border-main icon-search" value="搜索"></li>
+              <input type="text" placeholder="请输入搜索用户名" id="user_name" class="input" style="width:250px; line-height:17px;display:inline-block" />
+                <a href="javascript:void(0)" class="button border-main icon-search" onclick="changeSearch()" > 搜索</a>
+            </li>
           </ul>
         </div>
+      <div id="t">
         <table class="table table-hover text-center">
           <tr>
             <th width="100" style="text-align:left; padding-left:20px;">ID</th>
@@ -73,26 +67,54 @@
           </tr>
         </table>
       </div>
-    </form>
+      </div>
 </block>
 
 <block name="script">
     <script type="text/javascript">
-        $(document).ready(function(){
             $('#select2').change(function(){
                 var value = $(this).val();
+                var user_name = $('#user_name').val();
                 $.ajax({
-                    url:'index',
-                    type:'GET',
-                    async:true,
+                    url: "{{:U('/Admin/User/userSelect')}}",
+                    type:'post',
                     data:{
-                        id:value
+                        'status':value,
+                        'name' : user_name
                 },
-                    success:function(data){
-
+                    success:function($data){
+                        $('#t').html($data);
                     }
                 });
             });
-        });
+
+            function changeSearch(){
+                var user_status = $('#select2').val();
+                var user_name = $('#user_name').val();
+
+                if (user_name.trim() != '') {
+                    $.ajax({
+                        type : 'post',
+                        url : "{{:U('/Admin/User/userSelect')}}",
+                        data : {
+                            'status' : user_status,
+                            'name' : user_name
+                        },
+                        success : function($data) {
+                            $('#t').html($data);
+                        }
+                    });
+                }
+            }
+
+            function goSearch(url) {
+                $.ajax({
+                    type : 'get',
+                    url : url,
+                    success : function($data) {
+                        $('#t').html($data);
+                    }
+                });
+            }
     </script>
 </block>
