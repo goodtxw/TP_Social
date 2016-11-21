@@ -65,6 +65,18 @@ class UserController extends CommonController
     //执行添加
     public function doadd()
     {
+        //验证邮箱格式
+        if(!preg_match('"^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\.\\w+([-.]\\w+)*$"',$_POST['email'])){
+            $this->redirect('add\s\3');
+            die;
+        }
+
+        //判断该邮箱是否已存在(唯一性)
+        if(!empty(M('user')->where(array('email'=>$_POST['email']))->select())){
+            $this->redirect('add\s\4');
+            die;
+        }
+
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize = 3145728 ;// 设置附件上传大小
         $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
@@ -85,6 +97,7 @@ class UserController extends CommonController
         $data = [];
         $data['name'] = $_POST['name'];
         $data['pwd'] = $_POST['password'];
+        $data['email'] = $_POST['email'];
         $data['sex'] = $_POST['sex'];
         $data['head_image'] = $info['img']['savename'];
         $data['status'] = 0;//状态(默认启用)
@@ -118,6 +131,10 @@ class UserController extends CommonController
             $this->assign('success',1);
         }elseif ($s == 2){
             $this->assign('success',2);
+        }elseif ($s == 3){
+            $this->assign('success',3);
+        }elseif ($s == 4){
+            $this->assign('success',4);
         }
         $this->display('User/add');
     }
