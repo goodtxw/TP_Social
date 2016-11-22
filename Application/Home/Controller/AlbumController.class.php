@@ -13,7 +13,8 @@ class AlbumController extends BaseController
         //用户的相册信息
         $album = new AlbumModel();
         $image =$album->relation(true)->where(array('u_id'=>session('id')))->select();
-
+//        echo "<pre>";
+//        var_dump($image);die;
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
         $this->assign('image',$image);
@@ -29,10 +30,54 @@ class AlbumController extends BaseController
         $date = intval((time()-$personal_info[0]['create_time'])/86400);
         //照片信息
         $image = M('image')->where(array('album_id'=>$_GET['id']))->select();
+        $album = M('album')->where(array('id'=>$_GET['id']))->select();
 
         $this->assign('date',$date);
         $this->assign('image',$image);
+        $this->assign('album',$album[0]);
         $this->assign('info',$personal_info[0]);
         $this->display();
+    }
+
+    //修改相册名
+    public function edit()
+    {
+        M('album')->name = $_POST['name'];
+        M('album')->where(array('id'=>$_POST['id']))->save();
+        $this->redirect('Album/detail');
+    }
+
+    //添加相册
+    public function update()
+    {
+        $map = [];
+        $map['name'] = $_POST['name'];
+        $map['time'] = time();
+        $map['u_id'] = session('id');
+        if (M('album')->add($map) > 0) {
+//                $this->success('恭喜您,添加成功!', U('index'));
+            $this->redirect('Album/index');
+        } else {
+                $this->error('添加失败....');
+//            $this->redirect('add\s\2');
+        }
+    }
+
+    //删除图片
+    public function del_image()
+    {
+        if(M('image')->where(array('id'=>$_POST['id']))->delete()>0){
+            $this->redirect('Album/detail');
+        }else{
+            $this->error('删除失败....');
+        }
+    }
+
+    //删除相册
+    public function del_album()
+    {
+        M('image')->where(array('album_id'=>$_POST['id']))->delete();
+        M('album')->where(array('id'=>$_POST['id']))->delete();
+        $this->redirect('Album/index');
     }
 }

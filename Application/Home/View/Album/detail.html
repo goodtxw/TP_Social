@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>我的相册</title>
-
+    <!--<link href="__PUBLIC__/bs/css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style_4_common.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style_4_home_spacecp.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/base.css">
@@ -11,14 +11,16 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/register-guide-v7.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/page_upgrade-all-min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/diyUpload.css">
     <style type="text/css">
         .xiangce{
-            margin-left: 25px;
-            /*margin:0 0 30px 40px;*/
-            /*text-align: center;*/
+            margin-left: 100px;
+            padding-bottom: 20px;
         }
         .xiangce img{
-            margin-bottom:10px;
+            margin-bottom:30px;
+            margin-right: 5px;
             border:2px solid rgba(24, 17, 25, 0.52);
         }
         .xiangce img:hover{
@@ -27,9 +29,23 @@
         .xiangce-head{
             padding:20px 20px 20px 20px;
         }
+        #box{
+            /*display: none;*/
+            margin:50px auto;
+            width:80%;
+            min-height:400px;
+            background-image:url(__PUBLIC__/home/resources/bg.jpg);
+        }
+        .quxiao{
+           width:25px;
+            margin-left: 100px;
+        }
+        #shangchuan{display: none;}
     </style>
     <script src="__PUBLIC__/home/js/jquery.min.js" type="text/javascript"></script>
     <script src="__PUBLIC__/layer/layer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/webuploader.html5only.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/diyUpload.js"></script>
 </head>
 
 <body class="nx-main980">
@@ -41,7 +57,7 @@
 <div id="nxContainer" class="nx-container nx-webpager-fold nx-freeViewport">
     <div class="nx-main">
         <div id="nxHeader" class="hd-wraper ">
-            <div class="hd-fixed-wraper cl" style="width: 1349px;">
+            <div class="hd-fixed-wraper cl" style="width: 1349px;height:50px;">
                 <div class="hd-main">
                     <h1 class="hd-logo"><a href="#" title=""><img src="__PUBLIC__/home/resources/logo_new.png"></a></h1>
                     <div class="hd-nav cl" style="opacity: 1; display: block;">
@@ -61,12 +77,20 @@
                                 <a href="#" target="_blank" class="hd-logindays">{{$date}}天</a>
                             </dd>
                         </dl>
+                        <style type="text/css">
+                            .ttt li a{
+                                padding:0;
+                                height:40px;
+                                line-height: 40px;
+                                padding-left: 30px;
+                            }
+                        </style>
                         <div class="hd-account-action">
                             <a href="#" class="account-more">
                                 <span class="ui-icon ui-icon-setting"></span>
                             </a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
-                                <ul class="nv-account-ctrl cl">
+                                <ul class="nv-account-ctrl cl ttt">
                                     <li class="nv-drop-privacy "><a href="#">修改头像</a></li>
                                     <li class="nv-drop-setting"><a href="#">个人设置</a></li>
                                     <li class="nv-drop-pay"><a href="#">隐私筛选</a></li>
@@ -79,7 +103,7 @@
                         <div class="hd-account-action hd-account-action-vip">
                             <a href="#" class="account-more"><span><img src="__PUBLIC__/home/resources/u_pm.png"></span></a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
-                                <ul class="nv-account-ctrl cl">
+                                <ul class="nv-account-ctrl cl ttt">
                                     <li class="nv-drop-skin"><a href="#" target="_blank"><span class="grid_list_num"></span>消息</a></li>
                                     <li class="nv-drop-skin"><a href="#" target="_blank">提醒<span class="grid_list_num"></span></a></li>
                                     <li class="nv-drop-skin"><a href="#">新听众</a></li>
@@ -91,7 +115,6 @@
             </div>
         </div>
     </div>
-
     <div class="bd-container ">
         <div class="frame-nav-wrap">
             <div id="frameFixedNav" class="frame-nav-fixed-wraper" style="width: 1349px; top: 50px;">
@@ -112,21 +135,70 @@
         </div>
         <div id="ct" class="ct2_a wp cl">
             <div class="xiangce-head">
+                {{$album.name}}　
                 <a href="{{:U('Album/index')}}">返回相册</a>
                 <div class="hd-account-action hd-account-action-vip">
                     <b class="account-more"><span>编辑</span></b>
                     <div class="nx-drop-box nx-simple-drop nx-account-drop">
                         <ul class="nv-account-ctrl cl">
-                            <li class="nv-drop-skin"><a href="#">修改相册名</a></li>
+                            <li class="nv-drop-skin"><a href="#" onclick="change_album()">修改相册名</a></li>
                             <li class="nv-drop-skin"><a href="#">批量操作</a></li>
-                            <li class="nv-drop-skin"><a href="#">上传图片</a></li>
+                            <li class="nv-drop-skin"><a href="#" onclick="_upload()">上传图片</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div id="shangchuan">
+                <div class="quxiao">
+                    <a href="#" onclick="quxiao()">取消</a>
+                </div>
+                <div id="box">
+                    <div id="test" ></div>
+                </div>
+            </div>
+            <script>
+                function quxiao(){
+                    $('#shangchuan').css('display','none');
+                }
+                function _upload(){
+                    $('#shangchuan').css('display','block');
+                }
+                $('#test').diyUpload({
+                    url:'server/fileupload.php',
+                    success:function( data ) {
+                        console.info( data );
+                    },
+                    error:function( err ) {
+                        console.info( err );
+                    }
+                });
+                //弹出一个输入框，输入一段文字，可以提交
+                function change_album() {
+                    var name = prompt("请输入您的相册名", "{{$album.name}}"); //将输入的内容赋给变量 name ，
+                    if (name) {
+                        $.ajax({
+                            url: "{{:U('/Home/Album/edit')}}",
+                            type:'post',
+                            data:{
+                                'name':name,
+                                'id':{{$album.id}}
+                            }
+                        });
+                        alert('修改成功');
+                        window.location.reload();//页面重新加载
+                    }
+                }
+                function openwin(){
+
+                }
+            </script>
             <div id="layer-photos-demo" class="layer-photos-demo xiangce">
-                <volist name="image" id="vo">
-                <img layer-pid="图片id，可以不写" layer-src="__PUBLIC__/images/{{$vo.name}}" width="225px" src="__PUBLIC__/images/{{$vo.name}}" alt="{{$vo.name}}">
+                <volist name="image" id="vo" key="k">
+                    <if condition="count($vo['name']) eq 0">暂无图片
+                    <else />
+                        <img onmouseover="showbutton('button{{$k}}')" onmouseout="hidebutton('button{{$k}}')" id="{{$vo.id}}" layer-src="__PUBLIC__/images/{{$vo.name}}" width="225px" height="150px" src="__PUBLIC__/images/{{$vo.name}}" alt="{{$vo.name}}">
+                        <button onmouseover="showbutton2('button{{$k}}','{{$vo.id}}')" onmouseout="hidebutton2('button{{$k}}')" class="button{{$k}}" style="position:relative;top:-79px; left:-34px; z-index:-2" >X</button>
+                    </if>
                 </volist>
             </div>
             <div class="appl">
@@ -174,9 +246,32 @@
         <!--底部end-->
     </div>
     <script>
-        $('button').click(function(){
-            window.history.go(-1);
-        });
+        function showbutton(obj) {
+            $('.'+obj).css('z-index','8');
+        }
+        function showbutton2(obj,m) {
+            $('.'+obj).css('z-index','8').click(function(){
+                if(confirm("确定删除？")) {
+//                    location.href="{{:U('/Home/Album/del_image/id/"+m+"')}}";
+                    $.ajax({
+                        url:"{{:U('/Home/Album/del_image')}}",
+                        type:'post',
+                        data:{
+                            id:m
+                        }
+                    });
+                    alert('删除成功');
+                    window.location.reload();//页面重新加载
+                }
+            });
+        }
+        function hidebutton(obj){
+            $('.'+obj).css('z-index','-2');
+        }
+        function hidebutton2(obj){
+            $('.'+obj).css('z-index','-2');
+        }
+
         layer.ready(function(){ //为了layer.ext.js加载完毕再执行
             layer.photos({
                 photos: '#layer-photos-demo',
