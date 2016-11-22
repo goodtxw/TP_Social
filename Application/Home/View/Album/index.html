@@ -113,18 +113,54 @@
             <div class="xiangce-head">
                 我的相册
                 <div class="hd-account-action hd-account-action-vip">
-                    <button>上传照片</button>　
-                    <button>新建相册</button>
+                    <button onclick="update_album()">新建相册</button>
                 </div>
+                <script>
+                    function update_album() {
+                        var name = prompt("请输入您的相册名", ""); //将输入的内容赋给变量 name ，
+                        if (name) {
+                            $.ajax({
+                                url: "{{:U('/Home/Album/update')}}",
+                                type:'post',
+                                data:{
+                                    'name':name
+                        }
+                        });
+                            alert('添加成功');
+                            window.location.reload();//页面重新加载
+                        }
+                    }
+                    function del_album(a){
+                        if(confirm("确定删除？")) {
+                            $.ajax({
+                                url:"{{:U('/Home/Album/del_album')}}",
+                                type:'post',
+                                data:{
+                                    id:a
+                                }
+                            });
+                            alert('删除成功');
+                            window.location.reload();//页面重新加载
+                        }
+                    }
+                </script>
             </div>
             <volist name="image" id="vo">
             <div class="albums-tab">
                 <div class="albums-tab-thumb sim-anim-1">
-                    <volist name="vo.Image" id="vv">
-                    <img src="__PUBLIC__/images/{{$vv.name}}" class="all studio"/>
-                    </volist>
+                    <if condition="count($vo['Image']) eq 0">
+                            <img style="height:166.5px;" src="__PUBLIC__/home/resources/200.png" class="all studio"/>
+                    <else />
+                        <volist name="vo.Image" id="vv">
+                            <img style="height:166.5px;" src="__PUBLIC__/images/{{$vv.name}}" class="all studio"/>
+                        </volist>
+                    </if>
                 </div>
-                <div class="albums-tab-text"><a href="{{:U('Album/detail',array('id'=>$vo['id']))}}">{{$vo.name}}</a><span>({{$vo.time|date='Y-m-d',###}})</span></div>
+                <div class="albums-tab-text">
+                    <a href="{{:U('Album/detail',array('id'=>$vo['id']))}}">{{$vo.name}}</a>
+                    <span>({{$vo.time|date='Y-m-d',###}})</span>
+                    <a style="float:right;" href="javascript:void(0)" onclick="del_album('{{$vo.id}}')"><span>删除</span></a>
+                </div>
             </div>
             </volist>
             <div class="appl">
