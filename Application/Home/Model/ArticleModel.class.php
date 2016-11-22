@@ -25,5 +25,11 @@
                 'class_name' => 'Comment',
                 'foreign_key' => 'article_id'
             ),
+            'Zan' => array(
+                'mapping_type' => self::HAS_MANY,
+                'mapping_name' => 'Zan',
+                'class_name' => 'Zan',
+                'foreign_key' => 'article_id'
+            ),
         );
     }

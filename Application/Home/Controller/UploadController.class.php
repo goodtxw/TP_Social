@@ -17,7 +17,7 @@
             $info  =  $upload->upload();
             if(!$info) {
                 // 上传错误提示错误信息 $upload->getError()
-                echo json_encode(['code'=>0]);
+                echo $upload->getError();
             }else{
                 // 上传成功
                 echo json_encode(['code'=>1,'content'=>$info]);

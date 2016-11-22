@@ -62,7 +62,7 @@
                     //检测密码
                     if($data[0]['pwd'] == $_POST['password']){
                         session('id',$data[0]['id']);
-                        $this->redirect('Homepage/index');
+                        $this->redirect('Index/index');
                         die;
                     }else{
                         $this->redirect('login\e\4');
