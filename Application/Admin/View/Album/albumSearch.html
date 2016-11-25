@@ -10,7 +10,13 @@
     <volist name="list" id="data" key="k">
         <tr>
             <td>{{$data.id}}</td>
-            <td><img src="__PUBLIC__/admin/images/{{$data.Image.0.name}}" alt="" width="120" height="50" /></td>
+            <td>
+                <if condition="count($data['imageDetial']) eq 0">
+                    <img src="__PUBLIC__/home/resources/200.png" alt="" width="120" height="50">
+                    <else />
+                    <img src="__PUBLIC__/upload/{{$data.imageDetial.0.name}}" alt="" width="120" height="50" />
+                </if>
+            </td>
             <td>{{$data.username}}</td>
             <td>{{$data.time|date='Y-m-d',###}}</td>
             <td><div class="button-group">

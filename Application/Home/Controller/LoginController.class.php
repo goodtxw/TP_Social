@@ -62,6 +62,14 @@
                     //检测密码
                     if($data[0]['pwd'] == $_POST['password']){
                         session('id',$data[0]['id']);
+                        //检测好友分组，如果为空自动添加默认分组
+                        $group = M('friend_group')->where(array('u_id'=>session('id')))->select();
+                        if($group[0]['name'] == ''){
+                            $map = [];
+                            $map['name'] = '未分组好友';
+                            $map['u_id'] = session('id');
+                            M('friend_group')->add($map);
+                        }
                         $this->redirect('Index/index');
                         die;
                     }else{
@@ -74,7 +82,7 @@
         //退出登录
         public function logout()
         {
-            session(null); // 清空所有的session
+            session('id',null); // 清空所有的session
             $this->redirect('Login/login');
         }
     }

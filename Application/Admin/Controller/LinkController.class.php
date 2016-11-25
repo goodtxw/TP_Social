@@ -5,51 +5,56 @@ use Admin\Common\MyPage;
 use Think\Controller;
 use Think\Page;
 
-class AdminController extends CommonController
+class LinkController extends CommonController
 {
-    //管理员列表
-    public function index()
+    //链接列表
+    public function index($e = 0)
     {
-        //判断用户权限
-        $admin = M('admin')->where(array('id'=>session('admin_id')))->select();
-        if($admin[0]['level'] == 0){//没有权限
-            $this->error('没有权限','/Admin/User/index');
+        if($e == 1){
+            $this->assign('error',1);
         }
         // 分页
-        $count = M('admin')->count();
+        $count = M('flink')->count();
         // 设置分页  总页数/每页数量
         $page = new MyPage($count,4);
         // 设置上一页下一页
         $page->setConfig('prev', '上一页');
         $page->setConfig('next', '下一页');
         // 显示分页
-        $show = $page->show('Admin/Admin/adminSelect');
+        $show = $page->show('Admin/Link/linkSelect');
         // 按照分页查询数据
-        $list = M('admin')->limit($page->firstRow.','.$page->listRows)->order('id desc')->select();
+        $list = M('flink')->limit($page->firstRow.','.$page->listRows)->order('id desc')->select();
         $this->assign('list', $list);
         $this->assign('page', $show);
-        $this->assign('title','管理员列表');
-        $this->display('Admin/index');
+        $this->assign('title','友情链接列表');
+        $this->display('Link/index');
     }
 
-    //封禁、解封
+    //显示、隐藏
     public function ban($id)
     {
         //接收ID
         $id = I('get.id/d');
-        $data = M('admin')->where(array('id'=>$id))->select();
-        //启用状态
-        if($data[0]['status'] == 0){
-            $data[0]['status'] = 1;
-            M('admin')->where(array('id'=>$id))->save($data[0]);
-            $this->redirect('Admin/index');
-            die;
+        $data = M('flink')->where(array('id'=>$id))->select();
+        $count = M('flink')->where(array('show'=>1))->count();
+        //隐藏状态
+        if($data[0]['show'] == 0){
+            //控制前台链接显示不超过四个
+            if($count<4){
+                $data[0]['show'] = 1;
+                M('flink')->where(array('id'=>$id))->save($data[0]);
+                $this->redirect('Link/index');
+                die;
+            }else{
+                $this->redirect('Link/index?e=1');
+                die;
+            }
         }
-        //禁用状态
-        if($data[0]['status'] == 1){
-            $data[0]['status'] = 0;
-            M('admin')->where(array('id'=>$id))->save($data[0]);
-            $this->redirect('Admin/index');
+        //显示状态
+        if($data[0]['show'] == 1){
+            $data[0]['show'] = 0;
+            M('flink')->where(array('id'=>$id))->save($data[0]);
+            $this->redirect('Link/index');
             die;
         }
     }
@@ -58,13 +63,11 @@ class AdminController extends CommonController
     public function doadd()
     {
         $data = [];
-        $data['name'] = $_POST['name'];
-        $data['pwd'] = $_POST['password'];
-        $data['status'] = 0;//状态(默认启用)
-        $data['level'] = 0;//0为普通管理员
+        $data['webname'] = $_POST['webname'];
+        $data['url'] = $_POST['url'];
 
         //实例化对象
-        $admin = M('admin');
+        $admin = M('flink');
         //过滤数据,数据验证
         if (!$admin->create($data)) {
             //如果创建数据失败,表示验证没有通过
@@ -89,13 +92,13 @@ class AdminController extends CommonController
         }elseif ($s == 2){
             $this->assign('success',2);
         }
-        $this->display('Admin/add');
+        $this->display('Link/add');
     }
 
     // 执行删除
     public function delete($id)
     {
-        $comment = M('admin');
+        $comment = M('flink');
         // 删除成功
         if ($comment->where(['id' => ['eq', $id]])->delete()) {
             $this->redirect('del\s\1');
@@ -112,25 +115,25 @@ class AdminController extends CommonController
         }elseif ($s == 2){
             $this->assign('success',2);
         }
-        $this->display('Admin/index');
+        $this->display('Link/index');
     }
 
-    //管理员搜索
-    public function adminSelect($status = '',$name = '')
+    //链接搜索
+    public function linkSelect($show = '',$name = '')
     {
         // 拼接搜索条件   设置分页条件
         $where = [];
-        if(trim($status) == ''){
-            $where['name'] = ['like',"%$name%"];
+        if(trim($show) == ''){
+            $where['webname'] = ['like',"%$name%"];
         }elseif(trim($name) == ''){
-            $where['status'] = ['eq',$status];
+            $where['show'] = ['eq',$show];
         }else{
-            $where['name'] = ['like',"%$name%"];
-            $where['status'] = ['eq',$status];
+            $where['webname'] = ['like',"%$name%"];
+            $where['show'] = ['eq',$show];
         }
 
         // 分页
-        $count = M('admin')->where($where)->count();
+        $count = M('flink')->where($where)->count();
         // 设置分页  总页数/每页数量
         $page = new MyPage($count,4);
         // 设置上一页下一页
@@ -138,11 +141,11 @@ class AdminController extends CommonController
         $page->setConfig('next', '下一页');
 
         //设置分页条件
-        $page->parameter['status'] = urlencode($status);
+        $page->parameter['show'] = urlencode($show);
         // 显示分页
         $show = $page->show();
         // 按照分页查询数据
-        $list = M('admin')->where($where)->limit($page->firstRow.','.$page->listRows)->order('id desc')->select();
+        $list = M('flink')->where($where)->limit($page->firstRow.','.$page->listRows)->order('id desc')->select();
         $this->assign('list', $list);
         $this->assign('page', $show);
         $this->display();

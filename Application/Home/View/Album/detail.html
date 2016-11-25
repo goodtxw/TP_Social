@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>我的相册</title>
-    <!--<link href="__PUBLIC__/bs/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="__PUBLIC__/bs/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style_4_common.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style_4_home_spacecp.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/base.css">
@@ -46,10 +46,11 @@
     <script src="__PUBLIC__/layer/layer.js" type="text/javascript"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/webuploader.html5only.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/diyUpload.js"></script>
+    <script src="__PUBLIC__/bs/js/bootstrap.min.js"></script>
 </head>
 
 <body class="nx-main980">
-<div id="fixedLayer" style="width: 1349px;"></div>
+<div id="fixedLayer"></div>
 
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
@@ -57,24 +58,24 @@
 <div id="nxContainer" class="nx-container nx-webpager-fold nx-freeViewport">
     <div class="nx-main">
         <div id="nxHeader" class="hd-wraper ">
-            <div class="hd-fixed-wraper cl" style="width: 1349px;height:50px;">
+            <div class="hd-fixed-wraper cl" style="height:50px;">
                 <div class="hd-main">
-                    <h1 class="hd-logo"><a href="#" title=""><img src="__PUBLIC__/home/resources/logo_new.png"></a></h1>
+                    <h1 class="hd-logo"><a href="{{:U('Index/index')}}" title=""><img src="__PUBLIC__/home/resources/logo_new.png" height="50px" style="top:0;"></a></h1>
                     <div class="hd-nav cl" style="opacity: 1; display: block;">
                         <div class="hd-search">
                             <form id="scbar_form" method="post" autocomplete="off" onsubmit="" action="" target="_blank">
-                                <input type="text" name="srchtxt" class="hd-search-input" autocomplete="off" placeholder="请输入搜索内容">
+                                <input type="text" style="height:30px;" class="hd-search-input" autocomplete="off" placeholder="请输入搜索内容">
                                 <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="hd-search-btn" value="true"></button>
                             </form>
                         </div>
                         <dl class="hd-account cl">
                             <dt>
-                                <a href="{{:U('Homepage/index')}}">
+                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
                                     <img src="__PUBLIC__/admin/images/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="balabala">
                                 </a>
                             </dt>
-                            <dd><a href="#" title="balabala" class="hd-name">{{$info.name}}</a>
-                                <a href="#" target="_blank" class="hd-logindays">{{$date}}天</a>
+                            <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" title="balabala" class="hd-name">{{$info.name}}</a>
+                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" target="_blank" class="hd-logindays">{{$date}}天</a>
                             </dd>
                         </dl>
                         <style type="text/css">
@@ -86,7 +87,7 @@
                             }
                         </style>
                         <div class="hd-account-action">
-                            <a href="#" class="account-more">
+                            <a href="#" class="account-more" style="height: 25px;line-height: 25px;">
                                 <span class="ui-icon ui-icon-setting"></span>
                             </a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
@@ -95,13 +96,13 @@
                                     <li class="nv-drop-setting"><a href="#">个人设置</a></li>
                                     <li class="nv-drop-pay"><a href="#">隐私筛选</a></li>
                                     <li class="nv-account-sline"></li>
-                                    <li class="nv-drop-guide"><a href="#">密码安全</a></li>
+                                    <li class="nv-drop-guide"><a href="{{:U('Password/index')}}">密码安全</a></li>
                                     <li class="nv-drop-exit"><a href="{{:U('Login/logout')}}">退出</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="hd-account-action hd-account-action-vip">
-                            <a href="#" class="account-more"><span><img src="__PUBLIC__/home/resources/u_pm.png"></span></a>
+                            <a href="#" class="account-more" style="height: 25px;line-height: 25px;"><span><img src="__PUBLIC__/home/resources/u_pm.png"></span></a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl ttt">
                                     <li class="nv-drop-skin"><a href="#" target="_blank"><span class="grid_list_num"></span>消息</a></li>
@@ -117,7 +118,7 @@
     </div>
     <div class="bd-container ">
         <div class="frame-nav-wrap">
-            <div id="frameFixedNav" class="frame-nav-fixed-wraper" style="width: 1349px; top: 50px;">
+            <div id="frameFixedNav" class="frame-nav-fixed-wraper" style="top: 50px;">
                 <div class="frame-nav-inner">
                     <ul class="fd-nav-list clearfix">
 
@@ -127,7 +128,7 @@
                         <li class="fd-nav-item"><a href="#">用户组</a></li>
                         <li class="fd-nav-item"><a href="#">隐私筛选</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Password/index')}}">密码安全</a></li>
-                        <li class="fd-nav-item"><a href="#">VIP购买</a></li>
+                        <li class="fd-nav-item"><a href="{{:U('Friendlist/index')}}">我的好友</a></li>
                         <li class="fd-nav-item fd-nav-cur-item"><a href="#">我的相册</a></li>
                     </ul>
                 </div>
@@ -138,16 +139,24 @@
                 {{$album.name}}　
                 <a href="{{:U('Album/index')}}">返回相册</a>
                 <div class="hd-account-action hd-account-action-vip">
-                    <b class="account-more"><span>编辑</span></b>
+                    <b class="account-more" style="height:27px;line-height:27px;padding-bottom: 5px;"><span>编辑</span></b>
                     <div class="nx-drop-box nx-simple-drop nx-account-drop">
-                        <ul class="nv-account-ctrl cl">
-                            <li class="nv-drop-skin"><a href="#" onclick="change_album()">修改相册名</a></li>
+                        <ul class="nv-account-ctrl cl ttt">
+                            <li class="nv-drop-skin"><a href="javascript:void(0)" onclick="change_album('{{$album.id}}')">修改相册名</a></li>
                             <li class="nv-drop-skin"><a href="#">批量操作</a></li>
                             <li class="nv-drop-skin"><a href="#" onclick="_upload()">上传图片</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <style type="text/css">
+                .ttt li a{
+                    padding:0;
+                    height:40px;
+                    line-height: 40px;
+                    padding-left: 30px;
+                }
+            </style>
             <div id="shangchuan">
                 <div class="quxiao">
                     <a href="#" onclick="quxiao()">取消</a>
@@ -173,31 +182,36 @@
                     }
                 });
                 //弹出一个输入框，输入一段文字，可以提交
-                function change_album() {
-                    var name = prompt("请输入您的相册名", "{{$album.name}}"); //将输入的内容赋给变量 name ，
-                    if (name) {
-                        $.ajax({
-                            url: "{{:U('/Home/Album/edit')}}",
-                            type:'post',
-                            data:{
-                                'name':name,
-                                'id':{{$album.id}}
-                            }
-                        });
-                        alert('修改成功');
-                        window.location.reload();//页面重新加载
-                    }
-                }
-                function openwin(){
-
+                function change_album(album_id) {
+                    layer.prompt({title: '请输入您的相册名',value: "{{$album.name}}",formType: 0}, function(text, index){
+                        layer.close(index);
+                        if (text) {
+                            $.ajax({
+                                url: "{{:U('/Home/Album/edit')}}",
+                                type:'post',
+                                data: {
+                                    'name': text,
+                                    'id': album_id
+                                },
+                                success:function($data){
+                                    if($data == 1){
+                                        layer.msg('该相册名已存在');
+                                    }else{
+                                        layer.msg('修改成功');
+                                        window.setTimeout("window.location.reload()",1000);//延时一秒重新加载
+                                    }
+                                }
+                            });
+                        }
+                    });
                 }
             </script>
             <div id="layer-photos-demo" class="layer-photos-demo xiangce">
                 <volist name="image" id="vo" key="k">
                     <if condition="count($vo['name']) eq 0">暂无图片
                     <else />
-                        <img onmouseover="showbutton('button{{$k}}')" onmouseout="hidebutton('button{{$k}}')" id="{{$vo.id}}" layer-src="__PUBLIC__/images/{{$vo.name}}" width="225px" height="150px" src="__PUBLIC__/images/{{$vo.name}}" alt="{{$vo.name}}">
-                        <button onmouseover="showbutton2('button{{$k}}','{{$vo.id}}')" onmouseout="hidebutton2('button{{$k}}')" class="button{{$k}}" style="position:relative;top:-79px; left:-34px; z-index:-2" >X</button>
+                        <img onmouseover="showbutton('button{{$k}}')" onmouseout="hidebutton('button{{$k}}')" id="{{$vo.id}}" layer-src="__PUBLIC__/upload/{{$vo.name}}" width="225px" height="150px" src="__PUBLIC__/upload/{{$vo.name}}" alt="{{$vo.name}}">
+                        <button onmouseover="showbutton2('button{{$k}}','{{$vo.id}}','{{$vo.name}}')" onmouseout="hidebutton2('button{{$k}}')" class="button{{$k}}" style="position:relative;top:-79px; left:-34px; z-index:-2" >X</button>
                     </if>
                 </volist>
             </div>
@@ -205,54 +219,17 @@
             </div>
         </div>
         <!--底部start-->
-        <div class="ft-wrapper clearfix">
-            <p>
-                <strong>玩转脸盆网</strong>
-                <a href="#" target="_blank">脸盆网介绍</a>
-                <a href="#" target="_blank">客服帮助</a>
-            </p>
-            <p>
-                <strong>商务合作</strong>
-                <a href="#" target="_blank">广告合作</a>
-                <a href="#" target="_blank">投资脸盆网</a>
-            </p>
-            <p>
-                <strong>公司信息</strong>
-                <a href="#" target="_blank">关于我们</a>
-                <a href="#" target="_blank">联系我们</a>
-                <a href="#" target="_blank">招聘</a>
-            </p>
-            <p>
-                <strong>友情链接</strong>
-                <a href="#" target="_blank">等待添加</a>
-                <a href="#" target="_blank">等待添加</a>
-                <a href="#" target="_blank">等待添加</a>
-                <a href="#" target="_blank">等待添加</a>
-            </p>
-            <p>
-                <strong>脸盆移动客户端下载</strong>
-                <a href="#" target="_blank">iPhone/Android</a>
-                <a href="#" target="_blank">其他脸盆产品</a>
-            </p>
-            <p class="copyright-info" style="margi-left: -20px">
-                <span>公司全称：遵义盆友网络发展有限公司</span>
-                <span>公司电话：0851-27900600</span>
-                <span>公司地址：贵州省遵义市万里路星力城<br>
-万里湘江小区C6栋1-14-4号</span>
-                <span><a href="#" target="_blank">黔ICP备14001641号-1</a></span>
-                <span>脸盆网©2016</span>
-            </p>
-        </div>
+        <block name="include"><include file="Boot:index" /></block>
         <!--底部end-->
     </div>
     <script>
         function showbutton(obj) {
             $('.'+obj).css('z-index','8');
         }
-        function showbutton2(obj,m) {
+        function showbutton2(obj,m,n) {
             $('.'+obj).css('z-index','8').click(function(){
-                if(confirm("确定删除？")) {
-//                    location.href="{{:U('/Home/Album/del_image/id/"+m+"')}}";
+                layer.confirm('确认删除?', {icon: 0, title:n}, function(index){
+                    layer.close(index);
                     $.ajax({
                         url:"{{:U('/Home/Album/del_image')}}",
                         type:'post',
@@ -260,9 +237,9 @@
                             id:m
                         }
                     });
-                    alert('删除成功');
-                    window.location.reload();//页面重新加载
-                }
+                    layer.msg('删除成功');
+                    window.setTimeout("window.location.reload()",1000);//延时一秒重新加载
+                });
             });
         }
         function hidebutton(obj){

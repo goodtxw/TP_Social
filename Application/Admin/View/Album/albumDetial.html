@@ -2,7 +2,7 @@
 
 <block name="content">
     <div class="panel admin-panel">
-        <div class="panel-head"><strong class="icon-reorder"> 积分详情</strong></div>
+        <div class="panel-head"><strong class="icon-reorder"> 相册详情</strong></div>
         <div class="padding border-bottom">
             <a href="{{:U('/Admin/Album/index')}}" class="button border-blue"><span class="icon-mail-reply (alias)"></span> 返回</a>
         </div>
@@ -20,7 +20,7 @@
                 <volist name="list" id="data" key="k">
                     <tr>
                         <td>{{$data.id}}</td>
-                        <td><img id="img{{$data.id}}" src="__PUBLIC__/admin/images/{{$data.name}}" width="120" height="70" alt=""></td>
+                        <td><img id="img{{$data.id}}" src="__PUBLIC__/upload/{{$data.name}}" width="120" height="70" alt=""></td>
                         <td>{{$data.username}}</td>
                         <td>{{$data.time|date='Y-m-d',###}}</td>
                         <td>

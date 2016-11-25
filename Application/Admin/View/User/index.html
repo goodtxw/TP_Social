@@ -38,7 +38,7 @@
               <td>{{$vo.name}}</td>
               <td width="10%">
                   <if condition="$vo.head_image eq ''"><img src="__PUBLIC__/admin/images/moren.jpg" alt="" width="60" height="60" class="radius-circle rotate-hover"/>
-                  <else /><img src="__PUBLIC__/admin/images/{{$vo.head_image}}" alt="" width="60" height="60" class="radius-circle rotate-hover"/>
+                  <else /><img src="__PUBLIC__/upload/{{$vo.head_image}}" alt="" width="60" height="60" class="radius-circle rotate-hover"/>
                   </if>
               </td>
                 <td>
@@ -55,7 +55,7 @@
               <td>
                   <div class="button-group">
                       <a class="button border-main" href="{{:U('detail',array('id'=>$vo['id']))}}""><span class="icon-edit"></span> 详情</a>
-                      <a class="button border-red" href="{{:U('ban',array('id'=>$vo['id']))}}"><span class="icon-trash-o"></span>
+                      <a class="button border-red" href="{{:U('ban',array('id'=>$vo['id']))}}"><span class="icon-ban"></span>
                           <if condition="$vo.status eq '0'">封禁
                               <else />解封
                           </if>

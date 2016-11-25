@@ -86,7 +86,7 @@ class RegisterController extends BaseController
         } else {
             //验证通过 执行添加操作
             //执行添加
-            if ($user->add($map) > 0) {
+            if ($user->add($map) > 0 ) {
                 echo "注册成功";
             } else {
                 $this->redirect('register\e\6');

@@ -38,13 +38,20 @@
     <body class="nx-main760">
         <div id="nxContainer" class="nx-container nx-webpager-fold nx-freeViewport">
             <div class="nx-main">
+<<<<<<< HEAD
                 <div id="nxHeader" class="hd-wraper " >
                     <div class="hd-fixed-wraper cl">
                         <div class="hd-main" >
+=======
+
+                <div id="nxHeader" class="hd-wraper ">
+                    <div class="hd-fixed-wraper cl" >
+                        <div class="hd-main">
+>>>>>>> lilei
                             <!--顶部logo-->
                             <h1 class="hd-logo">
-                                <a href="http://www.facebowl.cn/" title="人人网_拓宽你的圈子,打开你的世界">
-                                    <img src="__PUBLIC__/home/resources/logo_new.png">
+                                <a href="{{:U('Index/index')}}" title="人人网_拓宽你的圈子,打开你的世界">
+                                    <img src="__PUBLIC__/home/resources/logo_new.png" height="50px" style="top:0;">
                                 </a>
                             </h1>
                             <div class="hd-nav cl">
@@ -52,14 +59,14 @@
                                 <div class="hd-search">
                                     <form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus()" action="" target="_blank">
                                         <input type="text" name="srchtxt" class="hd-search-input" autocomplete="off" placeholder="请输入搜索内容" style="height: 32px;width: 500px">
-                                        <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="hd-search-btn"
-                                                value="true"></button>
+                                        <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="hd-search-btn" value="true"></button>
                                     </form>
                                 </div>
 
 
                                 <dl class="hd-account cl">
                                     <dt>
+<<<<<<< HEAD
                                         <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}">
                                             <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="txw">
                                         </a>
@@ -68,6 +75,14 @@
                                            class="hd-name">{{$user.name}}</a>
                                         <a href="http://www.facebowl.cn/space-uid-55216.html" target="_blank"
                                            class="hd-logindays">0天</a>
+=======
+                                        <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
+                                            <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="{{$user.name}}">
+                                        </a>
+                                    </dt>
+                                    <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" title="" class="hd-name">{{$user.name}}</a>
+                                        <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" class="hd-logindays">{{$date}}天</a>
+>>>>>>> lilei
                                     </dd>
                                 </dl>
 
@@ -121,17 +136,17 @@
                                     <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                         <ul class="nv-account-ctrl cl ttt">
                                             <li class="nv-drop-skin">
-                                                <a href="http://www.facebowl.cn/home.php?mod=space&amp;do=pm" target="_blank">
+                                                <a href="">
                                                     <span class="grid_list_num"></span>消息
                                                 </a>
                                             </li>
                                             <li class="nv-drop-skin">
-                                                <a href="http://www.facebowl.cn/home.php?mod=space&amp;do=notice" target="_blank">
+                                                <a href="">
                                                     新提醒<span class="grid_list_num">( 2 )</span>
                                                 </a>
                                             </li>
                                             <li class="nv-drop-skin">
-                                                <a href="http://www.facebowl.cn/home.php?mod=follow&amp;do=follower">
+                                                <a href="">
                                                     新听众
                                                 </a>
                                             </li>
@@ -151,40 +166,30 @@
                         <div class="frame-nav-inner">
                             <ul class="fd-nav-list clearfix">
                                 <li class="fd-nav-item fd-nav-item-list" id="mn_N36bf" onmouseover="">
-                                    <a href="http://www.facebowl.cn/#" hidefocus="true">新鲜事
-                                    </a>
+                                    <a href="" hidefocus="true">新鲜事</a>
                                     <span class="fd-nav-filter-btn">
                                         <span class="ui-icon ui-icon-caratb"></span>
                                         <ul class="newsfeed-filter-list">
                                             <li>
-                                                <a href="http://www.facebowl.cn/forum.php?gid=134" hidefocus="true">只看照片
-                                                </a>
+                                                <a href="" hidefocus="true">只看照片</a>
                                             </li>
                                             <li>
-                                                <a href="http://www.facebowl.cn/forum.php?gid=135" hidefocus="true">只看视屏
-                                                </a>
+                                                <a href="" hidefocus="true">只看视屏</a>
                                             </li>
                                             <li>
-                                                <a href="http://www.facebowl.cn/forum.php?gid=136" hidefocus="true">只看状态
-                                                </a>
+                                                <a href="" hidefocus="true">只看状态</a>
                                             </li>
                                             <li>
-                                                <a href="http://www.facebowl.cn/forum.php?gid=137" hidefocus="true">
-                                                    只看分享
-                                                </a>
+                                                <a href="" hidefocus="true">只看分享</a>
                                             </li>
                                         </ul>
                                     </span>
                                 </li>
                                 <li class="fd-nav-item fd-nav-item-list" id="mn_N6bfe">
-                                    <a href="http://www.facebowl.cn/forum-133-1.html" hidefocus="true">
-                                        原创内容
-                                    </a>
+                                    <a href="" hidefocus="true">原创内容</a>
                                 </li>
                                 <li class="fd-nav-item fd-nav-item-list" id="mn_N1c24">
-                                    <a href="http://www.facebowl.cn/niejuzi/" hidefocus="true" target="_blank">
-                                        特别关注
-                                    </a>
+                                    <a href="" hidefocus="true">特别关注</a>
                                 </li>
                             </ul>
                         </div>
@@ -217,7 +222,7 @@
                                             </style>
                                             <ul class="_bui droppableNav _3-96 ttt1">
                                                 <li class="cl sideNavItem stat_elem selectedItem">
-                                                    <a target="_blank" class="_5afe" title="我的主页" href="http://www.facebowl.cn/home.php?mod=space">
+                                                    <a class="_5afe" title="我的主页" href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_40.gif">
                                                         </span>
@@ -228,7 +233,7 @@
                                                 </li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe sortableItem" title="我的帖子" href="http://www.facebowl.cn/home.php?mod=space&amp;do=thread&amp;view=me&amp;from=space">
+                                                    <a target="_blank" class="_5afe sortableItem" title="我的帖子" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_38.gif">
                                                         </span>
@@ -240,8 +245,7 @@
 
                                                 <li class="cl sideNavItem stat_elem">
 
-                                                    <a target="_blank" class="_5afe sortableItem" title="我的积分"
-                                                       href="http://www.facebowl.cn/home.php?mod=spacecp&amp;ac=credit">
+                                                    <a target="_blank" class="_5afe sortableItem" title="我的积分" href="">
                                                         <span class="imgWrap"><img
                                                                 src="__PUBLIC__/home/resources/icon_26.gif"></span>
                                                         <div class="linkWrap noCount">
@@ -250,18 +254,18 @@
                                                     </a></li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe sortableItem" title="我的马甲" href="http://www.facebowl.cn/home.php?mod=spacecp&amp;ac=plugin&amp;id=myrepeats:memcp">
+                                                    <a class="_5afe sortableItem" title="我的相册" href="{{:U('Album/index')}}">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_34.gif">
                                                         </span>
                                                         <div class="linkWrap noCount">
-                                                            <span>我的马甲</span>
+                                                            <span>我的相册</span>
                                                         </div>
                                                     </a>
                                                 </li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe sortableItem" title="修改用户名" href="http://www.facebowl.cn/home.php?mod=spacecp&amp;ac=plugin&amp;op=profile&amp;id=k_gaiming:k_gaiming">
+                                                    <a target="_blank" class="_5afe sortableItem" title="修改用户名" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_68.gif">
                                                         </span>
@@ -279,7 +283,7 @@
 
                                             <ul class="_bui nonDroppableNav _3-96 ttt1">
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="搜索好友" href="http://www.facebowl.cn/home.php?mod=spacecp&amp;ac=search">
+                                                    <a target="_blank" class="_5afe" title="搜索好友" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_46.gif">
                                                         </span>
@@ -290,7 +294,7 @@
                                                 </li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="收藏夹" href="http://www.facebowl.cn/home.php?mod=space&amp;do=favorite&amp;view=me">
+                                                    <a target="_blank" class="_5afe" title="收藏夹" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_74.gif">
                                                         </span>
@@ -301,7 +305,7 @@
                                                 </li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="捏橘子1" href="http://www.facebowl.cn/niejuzi/">
+                                                    <a target="_blank" class="_5afe" title="捏橘子1" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_32.gif">
                                                         </span>
@@ -311,7 +315,7 @@
                                                     </a></li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="捏橘子2" href="http://www.facebowl.cn/niejuzi1/">
+                                                    <a target="_blank" class="_5afe" title="捏橘子2" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_32.gif">
                                                         </span>
@@ -326,7 +330,7 @@
 
                                         <div id="groupsNav" class="homeSideNav">
                                             <h4 class="navHeader">
-                                                <a target="_blank" href="http://www.facebowl.cn/#">
+                                                <a target="_blank" href="">
                                                     <div class="cl">
                                                         <div class="_ohe lfloat">
                                                             <span class="sectionDragHandle">关系</span>
@@ -338,7 +342,7 @@
                                             </h4>
                                             <ul class="_bui nonDroppableNav _3-96 ttt1">
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="好友" href="http://www.facebowl.cn/home.php?mod=space&amp;do=friend">
+                                                    <a class="_5afe" title="好友" href="{{:U('Friendlist/index')}}">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_16.gif">
                                                         </span>
@@ -349,7 +353,7 @@
                                                 </li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="关注" href="http://www.facebowl.cn/home.php?mod=follow&amp;do=following">
+                                                    <a target="_blank" class="_5afe" title="关注" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_24.gif">
                                                         </span>
@@ -360,8 +364,7 @@
                                                 </li>
 
                                                 <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="粉丝"
-                                                       href="http://www.facebowl.cn/home.php?mod=follow&amp;do=follower">
+                                                    <a target="_blank" class="_5afe" title="粉丝" href="">
                                                         <span class="imgWrap">
                                                             <img src="__PUBLIC__/home/resources/icon_48.gif">
                                                         </span>
@@ -416,17 +419,13 @@
                                                 <div class="portal_block_summary">
                                                     <div class="side-item bw0">
                                                         <div class="side-item-advert">
-                                                            <a href="http://www.facebowl.cn/plugin.php?id=dsu_paulsign:sign"
-                                                               class="btn_vime">每日签到
-                                                            </a>
+                                                            <a href="" class="btn_vime">每日签到</a>
                                                         </div>
                                                     </div>
 
                                                     <div class="side-item bw0">
                                                         <div class="side-item-advert">
-                                                            <a href="http://www.facebowl.cn/plugin.php?id=appbyme_app:download"
-                                                               class="btn_vime" style="background: #78AF5D;">APP下载
-                                                            </a>
+                                                            <a href="" class="btn_vime" style="background: #78AF5D;">APP下载</a>
                                                         </div>
                                                     </div>
 
@@ -724,6 +723,7 @@
                                                     <div class="a-feed" style="position: relative;">
                                                         <div class="cl header">
                                                             <div class="user-avatar">
+<<<<<<< HEAD
                                                                 <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" c="1" target="_blank" class="avatar" mid="card_8477">
                                                                     <img src="__PUBLIC__/upload/{{$data.head_image}}"
                                                                          width="50" title="{{$data.username}}">
@@ -731,6 +731,14 @@
                                                             </div>
                                                             <div class="feed-user-info cl">
                                                                 <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" c="1" target="_blank" mid="card_8477">{{$data.username}}</a>
+=======
+                                                                <a href="{{:U('Homepage/index',array('u_id'=>$data['u_id']))}}" c="1" class="avatar" mid="card_8477">
+                                                                    <img src="__PUBLIC__/upload/{{$data.head_image}}" width="50" title="{{$data.username}}">
+                                                                </a>
+                                                            </div>
+                                                            <div class="feed-user-info cl">
+                                                                <a href="{{:U('Homepage/index',array('u_id'=>$data['u_id']))}}" c="1" target="_blank" mid="card_8477">{{$data.username}}</a>
+>>>>>>> lilei
                                                             </div>
                                                             <div class="feed-action-info">
                                                                 <p>
@@ -972,9 +980,16 @@
                 </div>
 
 
+<<<<<<< HEAD
             <!--底部-->
             <block name="include"><include file="Boot:index"/></block>
             <!--</div>-->
+=======
+                <!--友情链接部分-->
+        <block name="include"><include file="Boot:index" /></block>
+                <!--友情链接结束-->
+            </div>
+>>>>>>> lilei
 
 
             <div id="ft" class="wp cl"></div>

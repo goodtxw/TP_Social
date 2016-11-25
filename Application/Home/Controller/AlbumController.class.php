@@ -15,6 +15,8 @@ class AlbumController extends BaseController
         $image =$album->relation(true)->where(array('u_id'=>session('id')))->select();
 //        echo "<pre>";
 //        var_dump($image);die;
+        $link = M('flink')->where(array('show'=>1))->select();
+        $this->assign('link',$link);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
         $this->assign('image',$image);
@@ -32,6 +34,8 @@ class AlbumController extends BaseController
         $image = M('image')->where(array('album_id'=>$_GET['id']))->select();
         $album = M('album')->where(array('id'=>$_GET['id']))->select();
 
+        $link = M('flink')->where(array('show'=>1))->select();
+        $this->assign('link',$link);
         $this->assign('date',$date);
         $this->assign('image',$image);
         $this->assign('album',$album[0]);
@@ -42,24 +46,34 @@ class AlbumController extends BaseController
     //修改相册名
     public function edit()
     {
-        M('album')->name = $_POST['name'];
-        M('album')->where(array('id'=>$_POST['id']))->save();
-        $this->redirect('Album/detail');
+        //查重，相册名唯一
+        $album = M('album')->where(array('u_id'=>session('id'),'name'=>$_POST['name']))->select();
+        if(empty($album)){
+            M('album')->name = $_POST['name'];
+            M('album')->where(array('id'=>$_POST['id']))->save();
+            $this->redirect('Album/detail');
+        }else{
+            echo 1;
+        }
     }
 
     //添加相册
     public function update()
     {
-        $map = [];
-        $map['name'] = $_POST['name'];
-        $map['time'] = time();
-        $map['u_id'] = session('id');
-        if (M('album')->add($map) > 0) {
-//                $this->success('恭喜您,添加成功!', U('index'));
-            $this->redirect('Album/index');
-        } else {
+        //查重，相册名唯一
+        $album = M('album')->where(array('u_id'=>session('id'),'name'=>$_POST['name']))->select();
+        if(empty($album)){
+            $map = [];
+            $map['name'] = $_POST['name'];
+            $map['time'] = time();
+            $map['u_id'] = session('id');
+            if (M('album')->add($map) > 0) {
+                $this->redirect('Album/index');
+            } else {
                 $this->error('添加失败....');
-//            $this->redirect('add\s\2');
+            }
+        }else{
+            echo 1;
         }
     }
 
