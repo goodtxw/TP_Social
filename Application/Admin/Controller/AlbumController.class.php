@@ -24,8 +24,10 @@
             $show = $page->show('/Admin/Album/albumSearch');
             // 按照分页查询数据
             $list = $album->relation(true)->limit($page->firstRow.','.$page->listRows)->select();
+
             $this->assign('list', $list);
             $this->assign('page', $show);
+            $this->assign('title', '相册列表');
             $this->display();
         }
 
@@ -60,20 +62,20 @@
             $image = M('image');
             $date = $image->find($imageId);
             // 拼接图片的完整路径
-            $filename = C('LOCAL_PATH').'/admin/images/' . $date['name'];
+            $filename = C('LOCAL_PATH').'/upload/' . $date['name'];
 
             // 删除文件
             if (unlink($filename)) {
                 // 替换图片
                 $img = [];
-                $img['name'] = 'passcode.jpg';
+                $img['name'] = 'weigui.jpg';
                 $img['ban'] = 1;
                 $image->where(['id'=>['eq', $imageId]])->save($img);
 
                 $re = [];
                 $re[] = 0;
                 // 返回替换后图片的路径
-                $re[] = C('Public').'/admin/images/' . $img['name'];
+                $re[] = C('Public').'/upload/' . $img['name'];
             }else {
                 $re = [];
                 $re[] = 1;

@@ -50,7 +50,7 @@ class LoginController extends CommonController
             }else{
                 //检测密码
                 if($data[0]['pwd'] == $_POST['password']){
-                    session('id',$data[0]['id']);
+                    session('admin_id',$data[0]['id']);
                     $this->redirect('Index/index');
                     die;
                 }else{
@@ -64,7 +64,7 @@ class LoginController extends CommonController
     //退出登录
     public function logout()
     {
-        session(null); // 清空所有的session
+        session('admin_id',null); // 清空所有的session
         $this->redirect('Login/login');
     }
 

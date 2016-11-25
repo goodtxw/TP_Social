@@ -43,6 +43,8 @@ class ArticleController extends CommonController
         //实例化对象
         $art = new ArticleModel();
         $data = $art->relation(true)->where(array('id'=>$id))->select();
+        $image = M('image')->where(array('article_id'=>$id))->select();
+
         if($data[0]['username2'] == ''){
             $this->assign('data',$data[0]);
             $this->assign('data1',$data[0]['username1']);
@@ -50,6 +52,7 @@ class ArticleController extends CommonController
             $this->assign('data',$data[0]);
             $this->assign('data1',$data[0]['username2']);
         }
+        $this->assign('image',$image);
         $this->display('Article/info');
     }
 

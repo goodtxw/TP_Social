@@ -6,17 +6,56 @@ class PersonaldataController extends BaseController
 {
 
     //修改个人资料
-    public function index()
+    public function index($e = 0)
     {
+        if($e == 1){
+            $this->assign('error',1);
+        }elseif ($e == 2){
+            $this->assign('error',2);
+        }elseif ($e == 3){
+            $this->assign('error',3);
+        }elseif ($e == 4){
+            $this->assign('error',4);
+        }
+
         $personal_info = M('user')->where(array('id'=>session('id')))->select();
         $date = intval((time()-$personal_info[0]['create_time'])/86400);
         //学校信息
         $school = M('school')->where(array('u_id'=>session('id')))->select();
-
+        $link = M('flink')->where(array('show'=>1))->select();
+        $this->assign('link',$link);
         $this->assign('school',$school[0]);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
         $this->display();
+    }
+
+    //执行修改
+    public function update()
+    {
+        //用户名不为空
+        if($_POST['name'] == ''){
+            $this->redirect('index\e\1');
+            die;
+        }
+        //正则匹配手机号
+        if(!preg_match('/^[1][3578][0-9]{9}$/',$_POST['tel'])){
+            $this->redirect('index\e\4');
+            die;
+        }
+
+        M('user')->name = $_POST['name'];
+        M('user')->tel = $_POST['tel'];
+        M('user')->address = $_POST['address'];
+        M('user')->sex = $_POST['sex'];
+        M('user')->birthday = $_POST['birthday'];
+        M('user')->privacy = $_POST['privacy'];
+        if(M('user')->where(array('id'=>session('id')))->save()>0){
+            $this->redirect('index\e\2');
+        }else{
+            $this->redirect('index\e\3');
+        }
+
     }
 
     //更新学校信息

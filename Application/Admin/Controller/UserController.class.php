@@ -80,11 +80,11 @@ class UserController extends CommonController
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize = 3145728 ;// 设置附件上传大小
         $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath = './Public/'; // 设置附件上传根目录
-        $upload->savePath = 'admin/'; // 设置附件上传（子）目录
+        $upload->rootPath = './Public/upload/'; // 设置附件上传根目录
+//        $upload->savePath = 'admin/'; // 设置附件上传（子）目录
         $upload->saveName = array('uniqid','');//图片名称,采用uniqid函数生成一个唯一的字符串序列
-        $upload->autoSub  = true;//自动使用子目录保存上传文件 默认为true
-        $upload->subName  = 'images';//子目录创建方式，采用数组或者字符串方式定义
+        $upload->autoSub  = false;//自动使用子目录保存上传文件 默认为true
+//        $upload->subName  = 'images';//子目录创建方式，采用数组或者字符串方式定义
 
         // 上传文件
         $info = $upload->upload();

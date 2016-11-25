@@ -4,10 +4,12 @@
         .xiangce{
             margin-top: 30px;
             margin-bottom: 30px;
-            text-align: center;
+            padding:0 120px 0 120px;
+            /*text-align: center;*/
         }
         .xiangce img{
-            margin-bottom: 3px;
+            margin-bottom: 15px;
+            margin-right: 15px;
             border:2px solid rgba(24, 17, 25, 0.52);
         }
         .xiangce img:hover{
@@ -71,12 +73,16 @@
             </div>
 
 
-            <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 图片详情</strong></div>
-    <div id="layer-photos-demo" class="layer-photos-demo xiangce">
-        <img layer-pid="图片id，可以不写" layer-src="__PUBLIC__/admin/images/zly.jpg" width="225px" src="__PUBLIC__/admin/images/zly.jpg" alt="赵丽颖">
-        <img layer-pid="图片id，可以不写" layer-src="__PUBLIC__/admin/images/zly.jpg" width="225px" src="__PUBLIC__/admin/images/zly.jpg" alt="图片名">
-        <img layer-pid="图片id，可以不写" layer-src="__PUBLIC__/admin/images/zly.jpg" width="225px" src="__PUBLIC__/admin/images/zly.jpg" alt="图片名">
-    </div>
+            <div class="panel-head">
+                <strong><span class="icon-pencil-square-o"></span> 图片详情</strong>
+            </div>
+
+            <div id="layer-photos-demo" class="layer-photos-demo xiangce">
+                <volist name="image" id="v">
+                <img layer-pid="" layer-src="__PUBLIC__/upload/{{$v.name}}" width="225px" height="151px" src="__PUBLIC__/upload/{{$v.name}}" alt="{{$v.name}}">
+                </volist>
+            </div>
+
             <div class="form-group">
                 <div class="label">
                     <label></label>

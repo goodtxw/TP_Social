@@ -40,7 +40,7 @@
 </head>
 
 <body class="nx-main980">
-<div id="fixedLayer" style="width: 1349px;"></div>
+<div id="fixedLayer"></div>
 
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
@@ -48,9 +48,9 @@
 <div id="nxContainer" class="nx-container nx-webpager-fold nx-freeViewport">
     <div class="nx-main">
         <div id="nxHeader" class="hd-wraper ">
-            <div class="hd-fixed-wraper cl" style="width: 1349px;">
+            <div class="hd-fixed-wraper cl">
                 <div class="hd-main">
-                    <h1 class="hd-logo"><a href="#" title=""><img src="__PUBLIC__/home/resources/logo_new.png"></a></h1>
+                    <h1 class="hd-logo"><a href="{{:U('Index/index')}}" title=""><img src="__PUBLIC__/home/resources/logo_new.png" height="50px" style="top:0;"></a></h1>
                     <div class="hd-nav cl" style="opacity: 1; display: block;">
                         <div class="hd-search">
                             <form id="scbar_form" method="post" autocomplete="off" onsubmit="" action="" target="_blank">
@@ -60,12 +60,12 @@
                         </div>
                         <dl class="hd-account cl">
                             <dt>
-                                <a href="{{:U('Homepage/index')}}">
+                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
                                     <img src="__PUBLIC__/admin/images/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="balabala">
                                 </a>
                             </dt>
-                            <dd><a href="#" title="balabala" class="hd-name">{{$info.name}}</a>
-                                <a href="#" target="_blank" class="hd-logindays">{{$date}}天</a>
+                            <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" title="balabala" class="hd-name">{{$info.name}}</a>
+                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" target="_blank" class="hd-logindays">{{$date}}天</a>
                             </dd>
                         </dl>
                         <div class="hd-account-action">
@@ -78,7 +78,7 @@
                                     <li class="nv-drop-setting"><a href="#">个人设置</a></li>
                                     <li class="nv-drop-pay"><a href="#">隐私筛选</a></li>
                                     <li class="nv-account-sline"></li>
-                                    <li class="nv-drop-guide"><a href="#">密码安全</a></li>
+                                    <li class="nv-drop-guide"><a href="{{:U('Password/index')}}">密码安全</a></li>
                                     <li class="nv-drop-exit"><a href="{{:U('Login/logout')}}">退出</a></li>
                                 </ul>
                             </div>
@@ -102,7 +102,7 @@
 
     <div class="bd-container ">
         <div class="frame-nav-wrap">
-            <div id="frameFixedNav" class="frame-nav-fixed-wraper" style="width: 1349px; top: 50px;">
+            <div id="frameFixedNav" class="frame-nav-fixed-wraper" style="top: 50px;">
                 <div class="frame-nav-inner">
                     <ul class="fd-nav-list clearfix">
 
@@ -111,7 +111,7 @@
                         <li class="fd-nav-item"><a href="#">积分</a></li>
                         <li class="fd-nav-item"><a href="#">用户组</a></li>
                         <li class="fd-nav-item"><a href="#">隐私筛选</a></li>
-                        <li class="fd-nav-item fd-nav-cur-item"><a href="#">密码安全</a></li>
+                        <li class="fd-nav-item fd-nav-cur-item"><a href="{{:U('Password/index')}}">密码安全</a></li>
                         <li class="fd-nav-item"><a href="#">VIP购买</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Album/index')}}">我的相册</a></li>
                     </ul>
@@ -179,44 +179,7 @@
             <div class="appl"><!-- home/spacecp_footer --></div>
         </div>
         <!--底部start-->
-        <div class="ft-wrapper clearfix">
-            <p>
-                <strong>玩转脸盆网</strong>
-                <a href="#" target="_blank">脸盆网介绍</a>
-                <a href="#" target="_blank">客服帮助</a>
-            </p>
-            <p>
-                <strong>商务合作</strong>
-                <a href="#" target="_blank">广告合作</a>
-                <a href="#" target="_blank">投资脸盆网</a>
-            </p>
-            <p>
-                <strong>公司信息</strong>
-                <a href="#" target="_blank">关于我们</a>
-                <a href="#" target="_blank">联系我们</a>
-                <a href="#" target="_blank">招聘</a>
-            </p>
-            <p>
-                <strong>友情链接</strong>
-                <a href="#" target="_blank">等待添加</a>
-                <a href="#" target="_blank">等待添加</a>
-                <a href="#" target="_blank">等待添加</a>
-                <a href="#" target="_blank">等待添加</a>
-            </p>
-            <p>
-                <strong>脸盆移动客户端下载</strong>
-                <a href="#" target="_blank">iPhone/Android</a>
-                <a href="#" target="_blank">其他脸盆产品</a>
-            </p>
-            <p class="copyright-info" style="margi-left: -20px">
-                <span>公司全称：遵义盆友网络发展有限公司</span>
-                <span>公司电话：0851-27900600</span>
-                <span>公司地址：贵州省遵义市万里路星力城<br>
-万里湘江小区C6栋1-14-4号</span>
-                <span><a href="#" target="_blank">黔ICP备14001641号-1</a></span>
-                <span>脸盆网©2016</span>
-            </p>
-        </div>
+        <block name="include"><include file="Boot:index" /></block>
         <!--底部end-->
     </div>
 

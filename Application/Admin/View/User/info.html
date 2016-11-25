@@ -19,8 +19,8 @@
             <label>头像：</label>
           </div>
           <div class="field">
-            <if condition="$vo.head_image eq ''"><img src="__PUBLIC__/admin/images/moren.jpg" alt="" width="60" height="60" class="radius-circle rotate-hover"/>
-              <else /><img src="__PUBLIC__/admin/images/{{$vo.head_image}}" alt="" width="60" height="60" class="radius-circle rotate-hover"/>
+            <if condition="$data.head_image eq ''"><img src="__PUBLIC__/admin/images/moren.jpg" alt="" width="60" height="60" class="radius-circle rotate-hover"/>
+              <else /><img src="__PUBLIC__/upload/{{$data.head_image}}" alt="" width="60" height="60" class="radius-circle rotate-hover"/>
             </if>
           </div>
         </div>

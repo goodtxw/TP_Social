@@ -13,5 +13,11 @@
                 'foreign_key' => 'id',
                 'parent_key' => 'fg_id',
             ),
+            'User' => array(
+                'mapping_type' => self::BELONGS_TO,
+                'mapping_name' => 'User',
+                'claa_name' => 'User',
+                'foreign_key' => 'friend_id',
+            ),
         );
     }

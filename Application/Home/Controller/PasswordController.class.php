@@ -24,7 +24,8 @@ class PasswordController extends BaseController
 
         $personal_info = M('user')->where(array('id'=>session('id')))->select();
         $date = intval((time()-$personal_info[0]['create_time'])/86400);
-
+        $link = M('flink')->where(array('show'=>1))->select();
+        $this->assign('link',$link);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
         $this->display();
