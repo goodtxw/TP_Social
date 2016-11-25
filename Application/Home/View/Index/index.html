@@ -9,7 +9,8 @@
 
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style_4_common.css">
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style_4_forum_forumdisplay.css">
-
+        <!--<script src="__PUBLIC__/home/js/common.js" type="text/javascript"></script>-->
+        <!--<script src="__PUBLIC__/home/js/forum.js" type="text/javascript"></script>-->
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/base.css">
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/home.css">
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/font-awesome.min.css">
@@ -20,6 +21,8 @@
         <script src="__PUBLIC__/bs/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/layer/layer.js"></script>
         <link href="__PUBLIC__/home/css/font-awesome.min93e3.css" rel="stylesheet">
+        <!--<script src="__PUBLIC__/home/js/libs.js" type="text/javascript"></script>-->
+        <!--<script src="__PUBLIC__/home/js/base.js" type="text/javascript"></script>-->
         <style>
             .conte-image li{
                 float: left;
@@ -33,78 +36,11 @@
     </head>
 
     <body class="nx-main760">
-        <div id="fixedLayer" style="width: 1351px;"></div>
-
-        <div id="append_parent">
-            <div id="e_postbg_menu" class="p_pop postbgbox" style="display: none;"><input type="button" style="background-image: url(&#39;static/image/postbg/bg5.png&#39;);" onclick="insertPostBackground(&#39;bg5.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/postbg/bg6.png&#39;);"
-                    onclick="insertPostBackground(&#39;bg6.png&#39;);"><input type="button"
-                                                                              style="background-image: url(&#39;static/image/postbg/bg9.png&#39;);"
-                                                                              onclick="insertPostBackground(&#39;bg9.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/postbg/2.jpg&#39;);"
-                    onclick="insertPostBackground(&#39;2.jpg&#39;);"><input type="button"
-                                                                            style="background-image: url(&#39;static/image/postbg/bg2.png&#39;);"
-                                                                            onclick="insertPostBackground(&#39;bg2.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/postbg/bg8.png&#39;);"
-                    onclick="insertPostBackground(&#39;bg8.png&#39;);"><input type="button"
-                                                                              style="background-image: url(&#39;static/image/postbg/1.jpg&#39;);"
-                                                                              onclick="insertPostBackground(&#39;1.jpg&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/postbg/3.jpg&#39;);"
-                    onclick="insertPostBackground(&#39;3.jpg&#39;);"><input type="button"
-                                                                            style="background-image: url(&#39;static/image/postbg/0.gif&#39;);"
-                                                                            onclick="insertPostBackground(&#39;0.gif&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/postbg/bg3.png&#39;);"
-                    onclick="insertPostBackground(&#39;bg3.png&#39;);"><input type="button"
-                                                                              style="background-image: url(&#39;static/image/postbg/bg10.png&#39;);"
-                                                                              onclick="insertPostBackground(&#39;bg10.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/postbg/bg4.png&#39;);"
-                    onclick="insertPostBackground(&#39;bg4.png&#39;);"><input type="button"
-                                                                              style="background-image: url(&#39;static/image/postbg/bg7.png&#39;);"
-                                                                              onclick="insertPostBackground(&#39;bg7.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/postbg/bg1.png&#39;);"
-                    onclick="insertPostBackground(&#39;bg1.png&#39;);"></div>
-            <div id="e_inserthorizontalrule_menu" class="p_pop hrbox" style="display: none;"><input type="button"
-                                                                                                    style="background-image: url(&#39;static/image/hrline/2.gif&#39;);"
-                                                                                                    onclick="insertHrImage(&#39;static/image/hrline/2.gif&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/hrline/line3.png&#39;);"
-                    onclick="insertHrImage(&#39;static/image/hrline/line3.png&#39;);"><input type="button"
-                                                                                             style="background-image: url(&#39;static/image/hrline/line8.png&#39;);"
-                                                                                             onclick="insertHrImage(&#39;static/image/hrline/line8.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/hrline/line4.png&#39;);"
-                    onclick="insertHrImage(&#39;static/image/hrline/line4.png&#39;);"><input type="button"
-                                                                                             style="background-image: url(&#39;static/image/hrline/4.gif&#39;);"
-                                                                                             onclick="insertHrImage(&#39;static/image/hrline/4.gif&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/hrline/line6.png&#39;);"
-                    onclick="insertHrImage(&#39;static/image/hrline/line6.png&#39;);"><input type="button"
-                                                                                             style="background-image: url(&#39;static/image/hrline/3.gif&#39;);"
-                                                                                             onclick="insertHrImage(&#39;static/image/hrline/3.gif&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/hrline/line1.png&#39;);"
-                    onclick="insertHrImage(&#39;static/image/hrline/line1.png&#39;);"><input type="button"
-                                                                                             style="background-image: url(&#39;static/image/hrline/1.gif&#39;);"
-                                                                                             onclick="insertHrImage(&#39;static/image/hrline/1.gif&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/hrline/0.gif&#39;);"
-                    onclick="insertHrImage(false);"><input type="button"
-                                                           style="background-image: url(&#39;static/image/hrline/line9.png&#39;);"
-                                                           onclick="insertHrImage(&#39;static/image/hrline/line9.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/hrline/5.gif&#39;);"
-                    onclick="insertHrImage(&#39;static/image/hrline/5.gif&#39;);"><input type="button"
-                                                                                         style="background-image: url(&#39;static/image/hrline/line2.png&#39;);"
-                                                                                         onclick="insertHrImage(&#39;static/image/hrline/line2.png&#39;);"><input
-                    type="button" style="background-image: url(&#39;static/image/hrline/line5.png&#39;);"
-                    onclick="insertHrImage(&#39;static/image/hrline/line5.png&#39;);"><input type="button"
-                                                                                             style="background-image: url(&#39;static/image/hrline/line7.png&#39;);"
-                                                                                             onclick="insertHrImage(&#39;static/image/hrline/line7.png&#39;);">
-            </div>
-
-        </div>
-        <div id="ajaxwaitid"></div>
         <div id="nxContainer" class="nx-container nx-webpager-fold nx-freeViewport">
-
             <div class="nx-main">
-
-                <div id="nxHeader" class="hd-wraper ">
-                    <div class="hd-fixed-wraper cl" style="width: 1351px;">
-                        <div class="hd-main">
+                <div id="nxHeader" class="hd-wraper " >
+                    <div class="hd-fixed-wraper cl">
+                        <div class="hd-main" >
                             <!--顶部logo-->
                             <h1 class="hd-logo">
                                 <a href="http://www.facebowl.cn/" title="人人网_拓宽你的圈子,打开你的世界">
@@ -124,12 +60,12 @@
 
                                 <dl class="hd-account cl">
                                     <dt>
-                                        <a href="http://www.facebowl.cn/space-uid-55216.html">
+                                        <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}">
                                             <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="txw">
                                         </a>
                                     </dt>
-                                    <dd><a href="http://www.facebowl.cn/space-uid-55216.html" title="txw"
-                                           class="hd-name">txw</a>
+                                    <dd><a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" title="txw"
+                                           class="hd-name">{{$user.name}}</a>
                                         <a href="http://www.facebowl.cn/space-uid-55216.html" target="_blank"
                                            class="hd-logindays">0天</a>
                                     </dd>
@@ -150,7 +86,7 @@
                                         </style>
                                         <ul class="nv-account-ctrl cl ttt">
                                             <li class="nv-drop-privacy ">
-                                                <a href="">
+                                                <a href="{{:U('Head/index')}}">
                                                     修改头像
                                                 </a>
                                             </li>
@@ -166,12 +102,12 @@
                                             </li>
                                             <li class="nv-account-sline"></li>
                                             <li class="nv-drop-guide">
-                                                <a href="">
+                                                <a href="{{:U('Password/index')}}">
                                                     密码安全
                                                 </a>
                                             </li>
                                             <li class="nv-drop-exit">
-                                                <a href="">
+                                                <a href="{{:U('Login/logout')}}">
                                                     退出
                                                 </a>
                                             </li>
@@ -210,7 +146,7 @@
 
             <div class="bd-container ">
                 <div class="frame-nav-wrap">
-                    <div id="frameFixedNav" class="frame-nav-fixed-wraper" style="width: 1351px;">
+                    <div id="frameFixedNav" class="frame-nav-fixed-wraper" >
                         <!--导航栏-->
                         <div class="frame-nav-inner">
                             <ul class="fd-nav-list clearfix">
@@ -777,9 +713,9 @@
                             <div id="threadlist" class="feed-list" style="position: relative;">
 
                                 <div id="forumnew" style="display:none"></div>
-                                <form method="post" autocomplete="off" name="moderate" id="moderate" action="">
-                                    <input type="hidden" name="formhash" value="0e2cb7af">
-                                    <input type="hidden" name="listextra" value="">
+                                <!--<form method="post" autocomplete="off" name="moderate" id="moderate" action="">-->
+                                    <!--<input type="hidden" name="formhash" value="0e2cb7af">-->
+                                    <!--<input type="hidden" name="listextra" value="">-->
 
                                     <!--主要内容 main-->
                                     <!--<table summary="forum_2" cellspacing="0" cellpadding="0" id="threadlisttableid">-->
@@ -788,13 +724,13 @@
                                                     <div class="a-feed" style="position: relative;">
                                                         <div class="cl header">
                                                             <div class="user-avatar">
-                                                                <a href="" c="1" target="_blank" class="avatar" mid="card_8477">
+                                                                <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" c="1" target="_blank" class="avatar" mid="card_8477">
                                                                     <img src="__PUBLIC__/upload/{{$data.head_image}}"
                                                                          width="50" title="{{$data.username}}">
                                                                 </a>
                                                             </div>
                                                             <div class="feed-user-info cl">
-                                                                <a href="" c="1" target="_blank" mid="card_8477">{{$data.username}}</a>
+                                                                <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" c="1" target="_blank" mid="card_8477">{{$data.username}}</a>
                                                             </div>
                                                             <div class="feed-action-info">
                                                                 <p>
@@ -1028,7 +964,7 @@
                                         </style>
 
                                     <!--</table>-->
-                                </form>
+                                <!--</form>-->
 
                             </div>
                         </div>
@@ -1036,51 +972,15 @@
                 </div>
 
 
-                <!--友情链接部分-->
-                <div class="ft-wrapper clearfix">
-                    <p>
-                        <strong>玩转脸盆网</strong>
-                        <a href="http://www.facebowl.cn/#" target="_blank">脸盆网介绍</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">客服帮助</a>
-                    </p>
-                    <p>
-                        <strong>商务合作</strong>
-                        <a href="http://www.facebowl.cn/#" target="_blank">广告合作</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">投资脸盆网</a>
-                    </p>
-                    <p>
-                        <strong>公司信息</strong>
-                        <a href="http://www.facebowl.cn/#" target="_blank">关于我们</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">联系我们</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">招聘</a>
-                    </p>
-                    <p>
-                        <strong>友情链接</strong>
-                        <a href="http://www.facebowl.cn/#" target="_blank">等待添加</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">等待添加</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">等待添加</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">等待添加</a>
-                    </p>
-                    <p>
-                        <strong>脸盆移动客户端下载</strong>
-                        <a href="http://www.facebowl.cn/plugin.php?id=appbyme_app:download" target="_blank">iPhone/Android</a>
-                        <a href="http://www.facebowl.cn/#" target="_blank">其他脸盆产品</a>
-                    </p>
-                    <p class="copyright-info" style="margi-left: -20px">
-                        <span>公司全称：遵义盆友网络发展有限公司</span>
-                        <span>公司电话：0851-27900600</span>
-                        <span>公司地址：贵州省遵义市万里路星力城<br>万里湘江小区C6栋1-14-4号</span>
-                        <span><a href="http://www.miibeian.gov.cn/" target="_blank">黔ICP备14001641号-1</a></span>
-                        <span>脸盆网©2016</span>
-                    </p>
-                </div><!--友情链接结束-->
-            </div>
+            <!--底部-->
+            <block name="include"><include file="Boot:index"/></block>
+            <!--</div>-->
 
 
             <div id="ft" class="wp cl"></div>
             <div class="focus plugin" id="ip_notice"></div>
 
-        </div>
+        <!--</div>-->
         <script>
 //            <!--显示所有图片-->
             function showAllImg() {
@@ -1267,25 +1167,687 @@
                     }
                 });
             }
-
-//            layui.use('flow', function() {
-//                var flow = layui.flow;
-//
-//                flow.load({
-//                    elem: '#LAY_demo1' //流加载容器
-//                    , scrollElem: '#LAY_demo1' //滚动条所在元素，一般不用填，此处只是演示需要。
-//                    , done: function (page, next) { //加载下一页
-//                        //模拟插入
-//                        setTimeout(function () {
-//                            var lis = [];
-//                            for (var i = 0; i < 8; i++) {
-//                                lis.push('<li>' + ( (page - 1) * 8 + i + 1 ) + '</li>')
-//                            }
-//                            next(lis.join(''), page > 10 ? 0 : 8);
-//                        }, 500);
-//                    }
-//                });
-//            })
         </script>
+
+
+        <!--开启聊天栏-->
+        <div class="ttt-chat-close ttt-chat-left-show">
+            <a href="javascript:void(0)" onclick="$('.ttt-chat-left-show').hide();$('#ttt-chat-div').show();"><span class="glyphicon glyphicon-align-justify"></span></a>
+            <span id="ttt-chat-message-hide-num">0</span>
+        </div>
+        <!--聊天栏-->
+        <div id="ttt-chat-div" style="display: none;">
+            <div class="ttt-chat-close ttt-chat-right">
+                <a href="javascript:void(0)" onclick="$('#ttt-chat-div').hide();$('.ttt-chat-left-show').show();"><span class="glyphicon glyphicon-arrow-right"></span></a>
+            </div>
+            <div id="ttt-chat-tab">
+                <ul>
+                    <li id="ttt-chat-tab-cf" ><a href="javascript:void(0)"><i class="glyphicon glyphicon-user"></i> 好友</a></li>
+                    <li id="ttt-chat-tab-sf" style="display: none"><span><i class="glyphicon glyphicon-user"></i> 好友</span></li>
+                    <li id="ttt-chat-tab-ch" style="display: none"><a href="javascript:void(0)"><i class="glyphicon glyphicon-edit"></i> 会话</a></li>
+                    <li id="ttt-chat-tab-sh" ><span><i class="glyphicon glyphicon-edit"></i> 会话</span></li>
+                    <span id="ttt-chat-message-num">0</span>
+                </ul>
+            </div>
+            <div class="ttt-chat-content ttt-friend">
+                <ul>
+                    <volist name="friend" id="fr">
+                        <li class="ttt-friend-li{{$fr.id}}">
+                            <a href="javascript:void(0)" ondblclick="clicktochat('{{$fr.id}}','{{$fr.name}}','{{$fr.head_image}}')">
+                                <div>
+                                    <img src="__PUBLIC__/upload/{{$fr.head_image}}">
+                                </div>
+                                <div>
+                                    <p>{{$fr.name}}</p>
+                                </div>
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="ttt-chat-content ttt-chat-now">
+                <ul>
+                    <volist name="chatnow" id="chat">
+                        <li class="ttt-chat-li{{$chat.User.id}}" onmousemove="showchatdelete('{{$chat.User.id}}')" onmouseout="hidechatdelete('{{$chat.User.id}}')" ondblclick="clicktochat('{{$chat.User.id}}','{{$chat.User.name}}','{{$chat.User.head_image}}')">
+                            <a href="javascript:void(0)">
+                                <div>
+                                    <span class="ttt-chat-now-mark ttt-chat-now-mark{{$chat.User.id}}"></span>
+                                    <img src="__PUBLIC__/upload/{{$chat.User.head_image}}">
+                                </div>
+                                <div>
+                                    <p>{{$chat.User.name}}</p>
+                                    <p class="ttt-chat-li-p{{$chat.User.id}}">{{$chat.content}}</p>
+                                </div>
+                                <div>
+                                    <button class="ttt-chat-delete ttt-cd-{{$chat.User.id}}" onclick="removefromchatnow('{{$chat.User.id}}')" onmousemove="showchatdelete('{{$chat.User.id}}')" onmouseout="hidechatdelete('{{$chat.User.id}}')">x</button>
+                                </div>
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <script>
+            var numberAll = {'0':0};
+
+            $('#ttt-chat-div').css({'height':document.documentElement.clientHeight,'width':'200px'});
+
+            function showchatdelete(num) {
+                $('.ttt-cd-'+num).css({'display':'block'});
+            }
+
+            function hidechatdelete(num){
+                $('.ttt-cd-'+num).css({'display':'none'});
+            }
+
+            $('#ttt-chat-tab-cf').click(function(){
+                $('#ttt-chat-tab-cf').css({'display':'none'});
+                $('#ttt-chat-tab-sf').css({'display':'block'});
+                $('#ttt-chat-tab-ch').css({'display':'block'});
+                $('#ttt-chat-tab-sh').css({'display':'none'});
+                $('.ttt-chat-now').css({'display':'none'});
+                $('.ttt-friend').css({'display':'block'});
+            });
+            $('#ttt-chat-tab-ch').click(function(){
+                $('#ttt-chat-tab-cf').css({'display':'block'});
+                $('#ttt-chat-tab-sf').css({'display':'none'});
+                $('#ttt-chat-tab-ch').css({'display':'none'});
+                $('#ttt-chat-tab-sh').css({'display':'block'});
+                $('.ttt-chat-now').css({'display':'block'});
+                $('.ttt-friend').css({'display':'none'});
+            });
+
+            function clicktochat(num, uname, uimg) {
+                // 判断节点是否存在
+                if($('.ttt-chat-li'+num).length > 0){
+                    var dom = $('.ttt-chat-li'+num);
+                    dom.remove();
+                    $('.ttt-chat-now ul').prepend(dom);
+                }else{
+                    $.ajax({
+                        url : "{{:U('/Home/Chat/chatNow')}}",
+                        type : 'post',
+                        data : {
+                            'user_id' : num
+                        },
+                        success : function(data){
+                            var data = eval("("+data+")");
+                            var dom = '<li class="ttt-chat-li'+num+'" onmousemove="showchatdelete('+num+')" onmouseout="hidechatdelete('+num+')" ondblclick="clicktochat('+num+',\''+uname+'\',\''+uimg+'\')"><a href="javascript:void(0)"><div><span class="ttt-chat-now-mark ttt-chat-now-mark'+num+'"></span><img src="__PUBLIC__/upload/'+uimg+'"></div><div><p>'+uname+'</p><p class="ttt-chat-li-p'+num+'">'+data['content']+'</p></div><div><button class="ttt-chat-delete ttt-cd-'+num+'" onmousemove="showchatdelete('+num+')" onmouseout="hidechatdelete('+num+')">x</button></div></a></li>';
+                            $('.ttt-chat-now ul').prepend(dom);
+                        }
+                    });
+                }
+                showchatwindow(num, uname, uimg);
+            }
+
+            // 显示聊天窗口
+            function showchatwindow(user_id, uname, uimg){
+                // 遍历聊天窗口 隐藏所有
+                $('.ttt-chat-window').each(function(){
+                    $(this).hide();
+                });
+
+                // 判断聊天窗口是否存在,不存在则创建   存在则显示
+                if($('.ttt-chat-window'+user_id).length <= 0){
+                    console.log(1432453254325)
+                    createchatwindow(user_id, uname, uimg);
+                }else {
+                    $('.ttt-chat-window'+user_id).show();
+                }
+                // 判断打开的聊天窗口是否是发消息那个人的窗口
+                if(numberAll[user_id]) {
+                    // 未读信息条数减少
+                    $('#ttt-chat-message-num').html((parseInt($('#ttt-chat-message-num').html()) - parseInt(numberAll[user_id])));
+                    $('#ttt-chat-message-hide-num').html((parseInt($('#ttt-chat-message-hide-num').html()) - parseInt(numberAll[user_id])));
+                    $('.ttt-chat-now-mark'+user_id).hide();
+                    numberAll[user_id] = 0;
+                    if (parseInt($('#ttt-chat-message-num').html()) == 0){
+                        $('#ttt-chat-message-num').hide();
+                        $('#ttt-chat-message-hide-num').hide();
+                    }
+                    // 将数据中的未读信息变为已读
+                    $.ajax({
+                        type : 'post',
+                        url : "{{:U('/Home/Chat/changeMsgStatu')}}",
+                        data : {
+                            'from_id' : user_id,
+                        }
+                    })
+                }
+            }
+
+            // 关闭聊天窗口
+            function closechatwindow() {
+                $('.ttt-chat-window').hide();
+            }
+
+            // 从正在聊天窗口中移除某个用户
+            function removefromchatnow(num, event){
+                console.log(4324);
+                window.event? window.event.cancelBubble = true : event.stopPropagation();
+            }
+
+            // websocket
+            var ws = new WebSocket('ws://192.168.20.144:8282');
+            // 链接成功时
+            ws.onopen = function(){
+                var uid = '{{$user.id}}';
+                var msg = {'type':'setuid','uid':uid};
+                msg = JSON.stringify(msg);
+                ws.send(msg);
+            };
+
+            // 接受服务器的回执信息
+            ws.onmessage = function (evt)
+            {
+                var received_msg = eval("("+evt.data+")");
+                // 判断聊天列表中有无该好友
+                if($('.ttt-chat-li'+received_msg['from_id']).length <= 0){
+                    $.ajax({
+                        type : 'post',
+                        url : "{{:U('/Home/Chat/chatNow')}}",
+                        data : {
+                            'user_id' : received_msg['from_id']
+                        },
+                        success : function(data){
+                            var data = eval("("+data+")");
+                            var dom = '<li class="ttt-chat-li'+received_msg['from_id']+'" onmousemove="showchatdelete('+received_msg['from_id']+')" onmouseout="hidechatdelete('+received_msg['from_id']+')" ondblclick="clicktochat('+received_msg['from_id']+',\''+received_msg['uname']+'\',\''+received_msg['img']+'\')"><a href="javascript:void(0)"><div><span class="ttt-chat-now-mark ttt-chat-now-mark'+received_msg['from_id']+'"></span><img src="__PUBLIC__/upload/'+received_msg['img']+'"></div><div><p>'+received_msg['uname']+'</p><p class="ttt-chat-li-p'+received_msg['from_id']+'">'+data['content']+'</p></div><div><button class="ttt-chat-delete ttt-cd-'+received_msg['from_id']+'" onmousemove="showchatdelete('+received_msg['from_id']+')" onmouseout="hidechatdelete('+received_msg['from_id']+')">x</button></div></a></li>';
+                            $('.ttt-chat-now ul').prepend(dom);
+                        }
+                    });
+                }
+                // 判断聊天窗口是否存在
+                if(($('.ttt-chat-window'+received_msg['from_id']).length) <= 0){
+                    createchatwindow(received_msg['from_id'],received_msg['uname'],received_msg['img']);
+                    $('.ttt-chat-window'+received_msg['from_id']).hide();
+                }
+                // 更新
+//                $('.ttt-chat-msg'+received_msg['from_id']).append('<div class="ttt-chat-msg-left"><img src="__PUBLIC__/upload/'+received_msg['img']+'"><div style=""><div >'+received_msg['content']+'</div></div></div>');
+                // 更新正在聊天最新信息
+                $('.ttt-chat-li-p'+received_msg['from_id']).html(received_msg['content']);
+                // 判断与该用户的聊天窗口是否是隐藏
+                if ($('.ttt-chat-window'+received_msg['from_id']).is(":hidden")){
+                    var n = parseInt($('#ttt-chat-message-num').html()) + 1;
+                    $('#ttt-chat-message-num').html(n).show();
+                    $('#ttt-chat-message-hide-num').html(n).show();
+
+                    if (numberAll[received_msg['from_id']]){
+                        numberAll[received_msg['from_id']] += 1;
+                    }else{
+                        numberAll[received_msg['from_id']] = 1;
+                    }
+                    $('.ttt-chat-now-mark'+received_msg['from_id']).show();
+                }
+            };
+
+            // 发送信息
+            function s(to_id, mes){
+                if(mes.trim() != ''){
+                    var a = {'type':'sentmsg','from_id':'{{$user.id}}','to_id':to_id,'content':mes, 'img':'{{$user.head_image}}', 'uname':'{{$user.name}}'};
+                    a = JSON.stringify(a);
+                    ws.send(a);
+                    // 更新正在聊天最新信息
+                    $('.ttt-chat-li-p'+to_id).html(mes);
+                    // 将信息添加到信息展示区
+                    $('.ttt-chat-msg'+to_id).append('<div class="ttt-chat-msg-right"><img src="__PUBLIC__/upload/'+'{{$user.head_image}}'+'"><div><div>'+mes+'</div></div></div>');
+                    // 清空消息输入框
+                    $('.ttt-chat-textarea'+to_id).val('');
+                }
+            }
+
+            function createchatwindow(user_id, uname, uimg){
+                var dWindow = $("<div class='ttt-chat-window ttt-chat-window"+user_id+"'></div>");
+                var dTitle = $('<div class="ttt-chat-title ttt-chat-title'+user_id+'"><ul><li><i class="glyphicon glyphicon-link"></i><span class="ttt-chat-title-name ttt-chat-title-name'+user_id+'"></span></li><li><a href="javascript:void(0)"><span class="glyphicon glyphicon-remove" onclick="closechatwindow()"></span></a></li></ul></div>');
+                var dM = $(' <div class="ttt-chat-msg ttt-chat-msg'+user_id+'"></div>');
+                var dB = $('<div class="ttt-chat-input ttt-chat-input'+user_id+'"><textarea class="ttt-chat-textarea ttt-chat-textarea'+user_id+'" placeholder="请输入聊天信息..."></textarea></div>');
+                var dV = $('<div class="ttt-chat-button ttt-chat-button'+user_id+'"><a class="ttt-chat-button-sub ttt-chat-button-sub'+user_id+'" href="javascript:void(0)">发送</a></div>');
+                dWindow.append(dTitle).append(dM).append(dB).append(dV);
+                $('body').append(dWindow);
+
+                // 初始化设置
+                var t = document.documentElement.clientHeight - $('.ttt-chat-window'+user_id).height();
+                $('.ttt-chat-window'+user_id).css({'display':'block','right':'205px','top':t});
+                $('.ttt-chat-title-name'+user_id).html(uname);
+                $('.ttt-chat-textarea'+user_id).val();
+                $.ajax({
+                    url : "{{:U('/Home/Chat/search')}}",
+                    type : 'post',
+                    data : {
+                        'user_id' : user_id
+                    },
+                    success : function(data){
+                        var data = eval("("+data+")");
+                        if(data.u_from_id == data.u_id){
+                            var dom = '<div class="ttt-chat-msg-right"><img src="__PUBLIC__/upload/{{$user.head_image}}"><div style=""><div>'+data.content+'</div></div></div>';
+                            // $('.ttt-chat-msg'+user_id).html(' ');
+                            var t = '<div class="ttt-chat-msg-time">- <span>'+new Date(parseInt(data.time) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日|下|午/g, " ")+'</span> -</div>';
+                            $('.ttt-chat-msg'+user_id).prepend(dom);
+                            $('.ttt-chat-msg'+user_id).prepend(t);
+                        }else {
+                            var dom = '<div class="ttt-chat-msg-left"><img src="__PUBLIC__/upload/'+uimg+'"><div style=""><div >'+data.content+'</div></div></div>';
+                            // $('.ttt-chat-msg'+user_id).html(' ');
+                            var t = '<div class="ttt-chat-msg-time">- <span>'+new Date(parseInt(data.time) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日|下|午/g, " ")+'</span> -</div>';
+                            $('.ttt-chat-msg'+user_id).prepend(dom);
+                            $('.ttt-chat-msg'+user_id).prepend(t);
+
+                        }
+                        // 为发送按钮绑定事件
+                        $('.ttt-chat-button-sub').click(function(){
+                            s(user_id, $('.ttt-chat-textarea'+user_id).val());
+                        });
+                    }
+                });
+            }
+
+            // 查看数据库的未读信息
+            function messageNotRead(){
+                $.ajax({
+                    type : 'post',
+                    url : "{{:U('/Home/Chat/messageNotRead')}}",
+                    success : function(data){
+                        var data = eval("("+data+")");
+                        // 消息数量
+                        var mesNum = data.length;
+                        if (mesNum > 0){
+                            for(var i=0; i<mesNum; i++){
+                                // 判断正在聊天是否存在
+                                if($('.ttt-chat-li'+data[i]['u_from_id']).length <= 0){
+                                    var dom = '<li class="ttt-chat-li'+data[i]['u_from_id']+'" onmousemove="showchatdelete('+data[i]['u_from_id']+')" onmouseout="hidechatdelete('+data[i]['u_from_id']+')" ondblclick="clicktochat('+data[i]['u_from_id']+',\''+data[i]['User']['name']+'\',\''+data[i]['User']['head_image']+'\')"><a href="javascript:void(0)"><div><span class="ttt-chat-now-mark ttt-chat-now-mark'+data[i]['u_from_id']+'"></span><img src="__PUBLIC__/upload/'+data[i]['User']['head_image']+'"></div><div><p>'+data[i]['User']['name']+'</p><p class="ttt-chat-li-p'+data[i]['u_from_id']+'">'+data[i]['content']+'</p></div><div><button class="ttt-chat-delete ttt-cd-'+data[i]['u_from_id']+'" onmousemove="showchatdelete('+data[i]['u_from_id']+')" onmouseout="hidechatdelete('+data[i]['u_from_id']+')">x</button></div></a></li>';
+                                    $('.ttt-chat-now ul').prepend(dom);
+                                }else {
+                                    $('.ttt-chat-li-p'+data[i]['u_from_id']).html(data[i]['content']);
+                                    var dom = $('.ttt-chat-li'+data[i]['u_from_id']);
+                                    dom.remove();
+                                    $('.ttt-chat-now ul').prepend(dom);
+                                }
+                                $('.ttt-chat-now-mark'+data[i]['u_from_id']).show();
+                                // 判断聊天窗口是否存在
+                                if($('.ttt-chat-window'+data[i]['u_from_id']).length <= 0){
+                                    createNotReadMes(data[i]['u_from_id'],data[i]['User']['name'],data[i]['User']['head_image'],data[i]['content']);
+                                }else {
+                                    var dom = '<div class="ttt-chat-msg-left"><img src="__PUBLIC__/upload/'+data[i]['User']['head_image']+'"><div style=""><div >'+data[i]['content']+'</div></div></div>';
+                                    $('.ttt-chat-msg'+data[i]['u_from_id']).append(dom);
+                                }
+                                // 将信息条数存到数组  并显示共多少条数
+                                var n = parseInt($('#ttt-chat-message-num').html()) + 1;
+                                $('#ttt-chat-message-num').html(n).show();
+                                $('#ttt-chat-message-hide-num').html(n).show();
+
+                                if (numberAll[data[i]['u_from_id']]){
+                                    numberAll[data[i]['u_from_id']] += 1;
+                                }else{
+                                    numberAll[data[i]['u_from_id']] = 1;
+                                }
+                            }
+                        }
+
+                    }
+                })
+            }
+            function createNotReadMes(user_id, uname, uimg, content){
+
+                var dWindow = $("<div class='ttt-chat-window ttt-chat-window"+user_id+"'></div>");
+                var dTitle = $('<div class="ttt-chat-title ttt-chat-title'+user_id+'"><ul><li><i class="glyphicon glyphicon-link"></i><span class="ttt-chat-title-name ttt-chat-title-name'+user_id+'"></span></li><li><a href="javascript:void(0)"><span class="glyphicon glyphicon-remove" onclick="closechatwindow()"></span></a></li></ul></div>');
+                var dM = $(' <div class="ttt-chat-msg ttt-chat-msg'+user_id+'"></div>');
+                var dB = $('<div class="ttt-chat-input ttt-chat-input'+user_id+'"><textarea class="ttt-chat-textarea ttt-chat-textarea'+user_id+'" placeholder="请输入聊天信息..."></textarea></div>');
+                var dV = $('<div class="ttt-chat-button ttt-chat-button'+user_id+'"><a class="ttt-chat-button-sub ttt-chat-button-sub'+user_id+'" href="javascript:void(0)">发送</a></div>');
+                dWindow.append(dTitle).append(dM).append(dB).append(dV);
+                $('body').append(dWindow);
+
+                // 初始化设置
+                var t = document.documentElement.clientHeight - $('.ttt-chat-window'+user_id).height();
+                $('.ttt-chat-window'+user_id).css({'display':'block','right':'205px','top':t,'display':'none'});
+                $('.ttt-chat-title-name'+user_id).html(uname);
+                $('.ttt-chat-textarea'+user_id).val();
+
+                var dom = '<div class="ttt-chat-msg-left"><img src="__PUBLIC__/upload/'+uimg+'"><div style=""><div >'+content+'</div></div></div>';
+                $('.ttt-chat-msg'+user_id).append(dom);
+                // 为发送按钮绑定事件
+                $('.ttt-chat-button-sub').click(function(){
+                    s(user_id, $('.ttt-chat-textarea'+user_id).val());
+                });
+            }
+            messageNotRead();
+        </script>
+        <style>
+            .ttt-chat-left-show {
+                position: fixed;
+                top: 0px;
+                right: 0px;
+                z-index: 999;
+            }
+            #ttt-chat-message-hide-num {
+                position: absolute;
+                top:2px;
+                right: 5px;
+                width: 13px;
+                height: 15px;
+                line-height: 15px;
+                text-align: center;
+                color: white;
+                background-color: #ffa500;
+                display: none;
+            }
+            #ttt-chat-div{
+                position: fixed;
+                top: 0;
+                right: 0;
+                z-index: 999;
+                border: 1px solid #ee7777;
+            }
+
+            .ttt-chat-close {
+                height: 49px;
+                width: 50px;
+            }
+            .ttt-chat-close a{
+                display: block;
+                height: 49px;
+                width: 50px;
+                line-height: 49px;
+                text-align: center;
+                color: white;
+                background-color: #0778A9;
+            }
+
+            #ttt-chat-tab{
+                position: relative;
+                width: 198px;
+                height: 50px;
+                background-color: #F6F4EC;
+            }
+            #ttt-chat-tab ul li{
+                width: 99px;
+                float: left;
+                height: 48px;
+                border-top: 1px solid #dedede;
+                border-bottom: 1px solid #dedede;
+            }
+            #ttt-chat-tab-cf, #ttt-chat-tab-sf{
+                border-right: 1px solid #dedede;
+            }
+            #ttt-chat-tab ul li a{
+                display: block;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                text-line-through: none;
+                text-decoration:none;
+                background-color: #f5faff;
+            }
+            #ttt-chat-tab ul li span{
+                display: block;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                background-color: #fff;
+            }
+            #ttt-chat-message-num{
+                position: absolute;
+                top:5px;
+                right: 10px;
+                width: 15px;
+                height: 20px;
+                text-align: center;
+                color: white;
+                background-color: #ffa500;
+                display: none;
+            }
+
+            .ttt-chat-content{
+                position: relative;
+                height: 100%;
+                background-color: #f5faff;
+                /*top: 1px;*/
+            }
+            .ttt-chat-content ul li {
+                height: 59px;
+                border-bottom: 1px solid #dfdfdf;
+                /*background-color: red;*/
+            }
+            .ttt-chat-content ul li:hover {
+                background-color: #fff;
+            }
+            .ttt-chat-content ul li a{
+                display: block;
+                height: 59px;
+                text-line-through: none;
+                text-decoration:none;
+            }
+            .ttt-chat-content ul li a div{
+                float: left;
+            }
+            .ttt-chat-content ul li a div:first-child img{
+                width: 50px;
+                height: 50px;
+                border: 1px solid #ededed;
+                margin-top: 5px;
+                margin-left: 8px;
+            }
+            .ttt-chat-content ul li a div:nth-child(2){
+                margin-left: 10px;
+                margin-top: 10px;
+                width: 100px;
+                /*background-color: blue;*/
+            }
+            .ttt-chat-content ul li a div:nth-child(2) p {
+                font-size: 14px;
+                color: black;
+                white-space:nowrap;
+                overflow:hidden;
+                text-overflow:ellipsis;
+            }
+            .ttt-chat-content ul li a div:nth-child(2) p:last-child {
+                font-size: 8px;
+                color: black;
+            }
+
+            .ttt-chat-now-mark {
+                float: left;
+                background-color: #ffa500;
+                height: 45px;
+                margin-top: 8px;
+                width: 2px;
+                display: none;
+            }
+
+            .ttt-friend {
+                display: none;
+            }
+            .ttt-friend ul li a div:nth-child(2) p {
+                margin-top: 10px;
+                font-size: 15px;
+                color: black;
+                white-space:nowrap;
+                overflow:hidden;
+                text-overflow:ellipsis;
+            }
+
+            .ttt-chat-delete {
+                margin-top: 5px;
+                margin-left: 9px;
+                border:0;
+                text-align: center;
+                width: 16px;
+                height: 20px;
+                display: none;
+                /*background-color: transparent;*/
+                z-index: 9999;
+            }
+
+            .ttt-chat-window{
+                display: none;
+                position: fixed;
+                width: 400px;
+                height: 460px;
+                z-index: 999;
+            }
+
+            .ttt-chat-title{
+                background-color: blue;
+                height: 40px;
+                width: 400px;
+            }
+            .ttt-chat-title ul li{
+                width: 200px;
+                height: 40px;
+                line-height: 40px;
+            }
+            .ttt-chat-title ul li:first-child{
+                float: left;
+                padding-left: 15px;
+                color: white;
+                font-size: 15px;
+            }
+            .ttt-chat-title ul li:first-child span{
+                margin-left: 8px;
+            }
+            .ttt-chat-title ul li:last-child{
+                float: right;
+            }
+            .ttt-chat-title ul li:last-child a{
+                float: right;
+                padding-right: 20px;
+                color: white;
+            }
+
+            .ttt-chat-msg {
+                background-color: #fff;
+                height: 280px;
+                width: 400px;
+                overflow-y: scroll;
+            }
+            .ttt-chat-msg::-webkit-scrollbar {
+                background: transparent;
+                display: none;
+            }
+            .ttt-chat-msg-time {
+                padding-top:15px;
+                text-align: center;
+            }
+            .ttt-chat-msg-left{
+                padding: 15px 0 0 10px;
+                float: left;
+                width: 100%;
+            }
+            .ttt-chat-msg-left img{
+                width:30px;
+                height:30px;
+                float: left;
+            }
+            .ttt-chat-msg-left div{
+                float: left;
+                max-width:310px;
+                margin-left:5px;
+                background-color: #6297FF;
+            }
+            .ttt-chat-msg-left div div{
+                padding: 5px;
+                color:white;
+            }
+            .ttt-chat-msg-right{
+                padding: 15px 10px 0 0;
+                float: right;
+                width: 100%;
+            }
+            .ttt-chat-msg-right img{
+                width:30px;
+                height:30px;
+                float: right;
+            }
+            .ttt-chat-msg-right div{
+                max-width: 310px;
+                margin-right:5px;
+                background-color: #6297FF;
+                float:right;
+            }
+            .ttt-chat-msg-right div div{
+                padding: 5px;
+                color:white;
+            }
+
+
+            .ttt-chat-input{
+                background-color: #E9EEF3;
+                height: 120px;
+                width: 400px;
+            }
+            .ttt-chat-textarea{
+                background-color: #E9EEF3;
+                height: 120px;
+                width: 400px;
+                padding-top: 10px;
+                padding-left: 5px;
+                font-size: 13px;
+                border: none;
+                border-top: 1px solid #dedede;
+                border-left: 1px solid #dedede;
+                border-right: 1px solid #dedede;
+            }
+            .ttt-chat-textarea::-webkit-scrollbar {
+                background: transparent;
+                display: none;
+            }
+
+
+            .ttt-chat-button{
+                background-color: #E9EEF3;
+                height: 20px;
+                width: 400px;
+            }
+            .ttt-chat-button-sub{
+                float: right;
+                display: block;
+                width: 400px;
+                height: 20px;
+                text-align: center;
+                border: 1px solid #dedede;
+                text-line-through: none;
+                text-decoration:none;
+            }
+        </style>
     </body>
 </html>
+<!--<div class="ttt-chat-window">-->
+<!--&lt;!&ndash;标题&ndash;&gt;-->
+<!--<div class="ttt-chat-title">-->
+<!--<ul>-->
+<!--<li><i class="glyphicon glyphicon-link"></i><span class="ttt-chat-title-name"></span></li>-->
+<!--<li><a href="javascript:void(0)"><span class="glyphicon glyphicon-remove" onclick="closechatwindow()"></span></a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--&lt;!&ndash;信息窗口&ndash;&gt;-->
+<!--<div class="ttt-chat-msg">-->
+
+<!--</div>-->
+<!--&lt;!&ndash;输入窗口&ndash;&gt;-->
+<!--<div class="ttt-chat-input">-->
+<!--<textarea class="ttt-chat-textarea" placeholder="请输入聊天信息..."></textarea>-->
+<!--</div>-->
+<!--&lt;!&ndash;按钮&ndash;&gt;-->
+<!--<div class="ttt-chat-button">-->
+<!--<a class="ttt-chat-button-sub" href="javascript:void(0)">发送</a>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+<!--<div class="ttt-chat-msg-time">-->
+    <!-- - <span>2016-11-09 12:47:45</span> - -->
+<!--</div>-->
+<!--<div class="ttt-chat-msg-left">-->
+    <!--<img src="__PUBLIC__/upload/y.jpg">-->
+    <!--<div style="">-->
+        <!--<div >-->
+            <!--噶啥grewgewrgergrrrrrrr噶啥grewgewrgergrrrrrrr噶啥grewgewrgergrrrrrrr-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="ttt-chat-msg-right">-->
+    <!--<img src="__PUBLIC__/upload/5829be8d2aafa.png">-->
+    <!--<div style="">-->
+        <!--<div>-->
+            <!--...grewgewrg-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

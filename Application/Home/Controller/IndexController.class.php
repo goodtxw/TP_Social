@@ -3,8 +3,8 @@
     namespace Home\Controller;
 
     use Home\Model\ArticleModel;
+    use Home\Model\ChatnowModel;
     use Home\Model\FriendGroupModel;
-    use Home\Model\FriendModel;
 
     class IndexController extends BaseController
     {
@@ -20,53 +20,68 @@
             $user = M('user')->where(['id' => ['eq', $u_id]])->find();
             // 好友id字符串
             $friend = '';
+            // 所有好友id 聊天用
+            $friend_id = '';
             // 查询好友id
             $friendGroup = new FriendGroupModel();
-            $fg = $friendGroup->relation(true)->where(['u_id' => ['eq', $u_id]])->find();
-            if (count($fg)>0){
+            $fg = $friendGroup->relation(true)->where(['u_id' => ['eq', $u_id]])->select();
+            if (count($fg)>0) {
                 // 遍历
-                foreach ($fg['Friend'] as $k => $v) {
-                    $friend .= $v['friend_id'] . ',';
+                foreach ($fg as $key => $value){
+                    foreach ($value['Friend'] as $k => $v) {
+                        $friend .= $v['friend_id'] . ',';
+                    }
                 }
+
+                // 查出所有好友id
+                $arr = explode(',',$friend);
+                array_pop($arr);
+                $friend_id = implode(',',$arr);
+
                 // 将自己加入
                 if ($friend != '') {
                     $friend .= $u_id;
                 } else {
                     $friend = $u_id;
                 }
-
-                // 根据用户的id查询文章 已时间倒叙排序
-                $article = new ArticleModel();
-                $ar = $article->relation(true)->where(['u_id' => ['in', $friend]])->order('time desc')->select();
-                if (count($ar)>0){
-                    // 查找评论用户的name与image
-                    $comment_user = [];
-                    $reply_user = [];
-                    foreach ($ar as $k=>$v){
-                        // 判断文章是否时转载
-                        if ($v['pid'] > 0){
-                            $ar[$k]['Image'] = M('image')->where(['article_id'=>['eq',array_pop(explode(',',$v['pid']))]])->select();
-                            $ar[$k]['zhuan'] = M('article')->where(['id'=>['eq',array_pop(explode(',',$v['pid']))]])->find();
-                            $ar[$k]['zuser'] = M('user')->where(['id'=>['eq',$ar[$k]['zhuan']['u_id']]])->field('name')->find();
-                        }
-                        foreach ($v['Comment'] as $key=>$value){
-                            $comment_user[$v['id']][$value['id']] = M('user')->where(['id'=>['eq',$value['u_id']]])->field(['id','name','head_image'])->select();
-                            if ($value['pid'] != 0){
-                                $reply_comment = M('comment')->where(['id'=>['eq',$value['pid']]])->find();
-                                $reply_user[$v['id']][$value['id']] = M('user')->where(['id'=>['eq',$reply_comment['u_id']]])->select();
-                            }
+            }else {
+                $friend = $u_id;
+            }
+            // 查询所有好友的信息
+            $friendAll = M('user')->where(['id'=>['in',$friend_id]])->field(['id','name','head_image'])->select();
+            // 查询正在会话的好友信息
+            $chatNow = (new ChatnowModel())->relation(true)->order("id desc")->where(['u_id'=>['eq',session('id')]])->select();
+            // 根据用户的id查询文章 已时间倒叙排序
+            $article = new ArticleModel();
+            $ar = $article->relation(true)->where("(u_id in (".$friend.") and privacy<>2) or (u_id=".session('id')." and privacy=2)")->order('time desc')->select();
+            if (count($ar)>0){
+                // 查找评论用户的name与image
+                $comment_user = [];
+                $reply_user = [];
+                foreach ($ar as $k=>$v){
+                    // 判断文章是否时转载
+                    if ($v['pid'] > 0){
+                        $ar[$k]['Image'] = M('image')->where(['article_id'=>['eq',array_pop(explode(',',$v['pid']))]])->select();
+                        $ar[$k]['zhuan'] = M('article')->where(['id'=>['eq',array_pop(explode(',',$v['pid']))]])->find();
+                        $ar[$k]['zuser'] = M('user')->where(['id'=>['eq',$ar[$k]['zhuan']['u_id']]])->field('name')->find();
+                    }
+                    foreach ($v['Comment'] as $key=>$value){
+                        $comment_user[$v['id']][$value['id']] = M('user')->where(['id'=>['eq',$value['u_id']]])->field(['id','name','head_image'])->select();
+                        if ($value['pid'] != 0){
+                            $reply_comment = M('comment')->where(['id'=>['eq',$value['pid']]])->find();
+                            $reply_user[$v['id']][$value['id']] = M('user')->where(['id'=>['eq',$reply_comment['u_id']]])->select();
                         }
                     }
                 }
             }
-//            echo '<pre>';var_dump($vew);exit;
-//            echo '<pre>';var_dump($ar);exit;
-//            echo '<pre>';var_dump($reply_user);exit;
-//            echo '<pre>';var_dump($comment_user);exit;
+            $link = M('flink')->where(array('show'=>1))->select();
+            $this->assign('link', $link);
             $this->assign('article', $ar);
             $this->assign('cuser', $comment_user);
             $this->assign('ruser', $reply_user);
             $this->assign('user', $user);
+            $this->assign('friend', $friendAll);
+            $this->assign('chatnow', $chatNow);
             $this->display();
         }
 
@@ -262,5 +277,4 @@
                 }
             }
         }
-
     }

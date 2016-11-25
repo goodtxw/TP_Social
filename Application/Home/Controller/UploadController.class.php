@@ -13,6 +13,7 @@
             $upload->autoSub = false;
             // 设置附件上传根目录
             $upload->rootPath  = C('LOCAL_PATH') .'/upload/';
+            $upload->saveName = array('uniqid','');
             // 上传文件
             $info  =  $upload->upload();
             if(!$info) {
