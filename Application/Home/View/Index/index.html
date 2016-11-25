@@ -38,16 +38,11 @@
     <body class="nx-main760">
         <div id="nxContainer" class="nx-container nx-webpager-fold nx-freeViewport">
             <div class="nx-main">
-<<<<<<< HEAD
-                <div id="nxHeader" class="hd-wraper " >
-                    <div class="hd-fixed-wraper cl">
-                        <div class="hd-main" >
-=======
 
                 <div id="nxHeader" class="hd-wraper ">
                     <div class="hd-fixed-wraper cl" >
                         <div class="hd-main">
->>>>>>> lilei
+
                             <!--顶部logo-->
                             <h1 class="hd-logo">
                                 <a href="{{:U('Index/index')}}" title="人人网_拓宽你的圈子,打开你的世界">
@@ -66,23 +61,14 @@
 
                                 <dl class="hd-account cl">
                                     <dt>
-<<<<<<< HEAD
-                                        <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}">
-                                            <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="txw">
-                                        </a>
-                                    </dt>
-                                    <dd><a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" title="txw"
-                                           class="hd-name">{{$user.name}}</a>
-                                        <a href="http://www.facebowl.cn/space-uid-55216.html" target="_blank"
-                                           class="hd-logindays">0天</a>
-=======
+
                                         <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
                                             <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="{{$user.name}}">
                                         </a>
                                     </dt>
                                     <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" title="" class="hd-name">{{$user.name}}</a>
                                         <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" class="hd-logindays">{{$date}}天</a>
->>>>>>> lilei
+
                                     </dd>
                                 </dl>
 
@@ -723,22 +709,14 @@
                                                     <div class="a-feed" style="position: relative;">
                                                         <div class="cl header">
                                                             <div class="user-avatar">
-<<<<<<< HEAD
-                                                                <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" c="1" target="_blank" class="avatar" mid="card_8477">
-                                                                    <img src="__PUBLIC__/upload/{{$data.head_image}}"
-                                                                         width="50" title="{{$data.username}}">
-                                                                </a>
-                                                            </div>
-                                                            <div class="feed-user-info cl">
-                                                                <a href="{{:U('/Home/Homepage/index/id/'.session('id'))}}" c="1" target="_blank" mid="card_8477">{{$data.username}}</a>
-=======
+
                                                                 <a href="{{:U('Homepage/index',array('u_id'=>$data['u_id']))}}" c="1" class="avatar" mid="card_8477">
                                                                     <img src="__PUBLIC__/upload/{{$data.head_image}}" width="50" title="{{$data.username}}">
                                                                 </a>
                                                             </div>
                                                             <div class="feed-user-info cl">
                                                                 <a href="{{:U('Homepage/index',array('u_id'=>$data['u_id']))}}" c="1" target="_blank" mid="card_8477">{{$data.username}}</a>
->>>>>>> lilei
+
                                                             </div>
                                                             <div class="feed-action-info">
                                                                 <p>
@@ -980,16 +958,11 @@
                 </div>
 
 
-<<<<<<< HEAD
+
             <!--底部-->
             <block name="include"><include file="Boot:index"/></block>
             <!--</div>-->
-=======
-                <!--友情链接部分-->
-        <block name="include"><include file="Boot:index" /></block>
-                <!--友情链接结束-->
-            </div>
->>>>>>> lilei
+
 
 
             <div id="ft" class="wp cl"></div>
