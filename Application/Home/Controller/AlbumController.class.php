@@ -20,7 +20,7 @@ class AlbumController extends BaseController
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
         $this->assign('image',$image);
-        $this->display();
+        $this->display('Album/index');
     }
 
     //相册详情
@@ -40,7 +40,7 @@ class AlbumController extends BaseController
         $this->assign('image',$image);
         $this->assign('album',$album[0]);
         $this->assign('info',$personal_info[0]);
-        $this->display();
+        $this->display('Album/detail');
     }
 
     //修改相册名

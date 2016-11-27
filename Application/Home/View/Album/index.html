@@ -53,7 +53,7 @@
                         <dl class="hd-account cl">
                             <dt>
                                 <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
-                                    <img src="__PUBLIC__/admin/images/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="">
+                                    <img src="__PUBLIC__/upload/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="">
                                 </a>
                             </dt>
                             <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" class="hd-name">{{$info.name}}</a>
@@ -67,8 +67,8 @@
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl">
                                     <li class="nv-drop-privacy "><a href="{{:U('Head/index')}}">修改头像</a></li>
-                                    <li class="nv-drop-setting"><a href="#">个人设置</a></li>
-                                    <li class="nv-drop-pay"><a href="#">隐私筛选</a></li>
+                                    <li class="nv-drop-setting"><a href="javascript:void(0)">个人设置</a></li>
+                                    <li class="nv-drop-pay"><a href="javascript:void(0)">隐私筛选</a></li>
                                     <li class="nv-account-sline"></li>
                                     <li class="nv-drop-guide"><a href="{{:U('Password/index')}}">密码安全</a></li>
                                     <li class="nv-drop-exit"><a href="{{:U('Login/logout')}}">退出</a></li>
@@ -76,12 +76,12 @@
                             </div>
                         </div>
                         <div class="hd-account-action hd-account-action-vip">
-                            <a href="#" class="account-more"><span><img src="__PUBLIC__/home/resources/u_pm.png"></span></a>
+                            <a href="javascript:void(0)" class="account-more"><span><img src="__PUBLIC__/home/resources/u_pm.png"></span></a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl">
-                                    <li class="nv-drop-skin"><a href="#" target="_blank"><span class="grid_list_num"></span>消息</a></li>
-                                    <li class="nv-drop-skin"><a href="#" target="_blank">提醒<span class="grid_list_num"></span></a></li>
-                                    <li class="nv-drop-skin"><a href="#">新听众</a></li>
+                                    <li class="nv-drop-skin"><a href="javascript:void(0)"><span class="grid_list_num"></span>消息</a></li>
+                                    <li class="nv-drop-skin"><a href="javascript:void(0)">提醒<span class="grid_list_num"></span></a></li>
+                                    <li class="nv-drop-skin"><a href="javascript:void(0)">新听众</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -99,9 +99,9 @@
 
                         <li class="fd-nav-item"><a href="{{:U('Head/index')}}">修改头像</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Personaldata/index')}}">个人资料</a></li>
-                        <li class="fd-nav-item"><a href="#">积分</a></li>
-                        <li class="fd-nav-item"><a href="#">用户组</a></li>
-                        <li class="fd-nav-item"><a href="#">隐私筛选</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">积分</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">用户组</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">隐私筛选</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Password/index')}}">密码安全</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Friendlist/index')}}">我的好友</a></li>
                         <li class="fd-nav-item fd-nav-cur-item"><a href="">我的相册</a></li>

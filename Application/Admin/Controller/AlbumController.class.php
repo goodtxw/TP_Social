@@ -28,7 +28,7 @@
             $this->assign('list', $list);
             $this->assign('page', $show);
             $this->assign('title', '相册列表');
-            $this->display();
+            $this->display('Album/index');
         }
 
         // 查看相册中的图片
@@ -52,7 +52,7 @@
 //            echo '<pre>';var_dump($list);exit;
             $this->assign('list', $list);
             $this->assign('page', $show);
-            $this->display();
+            $this->display('Album/albumDetial');
         }
 
         // 违规图片的封禁
@@ -111,6 +111,6 @@
             $list = $album->relation(true)->where($where)->limit($page->firstRow.','.$page->listRows)->select();
             $this->assign('list', $list);
             $this->assign('page', $show);
-            $this->display();
+            $this->display('Album/albumSearch');
         }
     }

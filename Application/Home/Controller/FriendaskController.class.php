@@ -19,7 +19,7 @@ class FriendaskController extends BaseController
         $this->assign('link',$link);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
-        $this->display();
+        $this->display('Friendask/index');
     }
 
     //同意好友申请
@@ -28,7 +28,7 @@ class FriendaskController extends BaseController
         //修改好友请求表，agree=>1(同意) 2(拒绝)
         M('friend_request')->agree = 1;
         M('friend_request')->where(array('u_id'=>session('id'),'r_id'=>$_POST['id']))->save();
-        //检测用户是否有未分组好友分组，有将好友放在该组，没有创建‘未分组好友’
+        //检测登录用户是否有未分组好友分组，有将好友放在该组，没有创建‘未分组好友’
         $group = M('friend_group')->where(array('u_id'=>session('id'),'name'=>'未分组好友'))->select();
         if(empty($group)){
             //创建分组
@@ -60,7 +60,6 @@ class FriendaskController extends BaseController
             $chat2['time'] = time();
             M('chat')->add($chat2);
             echo 1;
-            die;
         }else{
            //往分组里添加好友
             $hehe = [];
@@ -84,7 +83,28 @@ class FriendaskController extends BaseController
             $chat2['time'] = time();
             M('chat')->add($chat2);
             echo 1;
-            die;
+        }
+        //检测请求用户是否有未分组好友分组，有将好友放在该组，没有创建‘未分组好友’
+        $group2 = M('friend_group')->where(array('u_id'=>$_POST['id'],'name'=>'未分组好友'))->select();
+        if(empty($group2)){
+            //创建分组
+            $map = [];
+            $map['name'] = '未分组好友';
+            $map['u_id'] = $_POST['id'];
+            M('friend_group')->add($map);
+            $new_group = M('friend_group')->where(array('u_id'=>$_POST['id'],'name'=>'未分组好友'))->select();
+            $new_id = $new_group[0]['id'];
+            //往分组里添加好友
+            $hehe = [];
+            $hehe['fg_id'] = $new_id;
+            $hehe['friend_id'] = session('id');
+            M('friend')->add($hehe);
+        }else{
+            //往分组里添加好友
+            $hehe = [];
+            $hehe['fg_id'] = $group2[0]['id'];
+            $hehe['friend_id'] = session('id');
+            M('friend')->add($hehe);
         }
     }
 

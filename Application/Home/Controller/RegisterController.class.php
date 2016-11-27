@@ -18,9 +18,11 @@ class RegisterController extends BaseController
             $this->assign('error',5);
         }elseif ($e == 6){
             $this->assign('error',6);
+        }elseif ($e == 7){
+            $this->assign('error',7);
         }
         $this->assign('title','人人网-注册');
-        $this->display();
+        $this->display('Register/register');
     }
 
     //生成验证码
@@ -43,10 +45,9 @@ class RegisterController extends BaseController
         }
 
         //判断验证码
-        $verify = new \Think\Verify();
-        if(!$verify->check($_POST['code'])){
+        if($_POST['code'] != session('email_yzm')){
             $this->redirect('register\e\5');
-            exit;
+            die;
         }
 
         //验证邮箱格式
@@ -77,7 +78,7 @@ class RegisterController extends BaseController
         $map['status'] = 0;//状态(默认启用)
         $map['create_time'] = time();
         $map['privacy'] = 1;//用户前台信息状态(默认陌生人不可见)
-
+        $map['head_image'] = 'moren.jpg';
         //过滤数据,数据验证
         if (!$user->create($map)) {
             //如果创建数据失败,表示验证没有通过
@@ -87,7 +88,7 @@ class RegisterController extends BaseController
             //验证通过 执行添加操作
             //执行添加
             if ($user->add($map) > 0 ) {
-                echo "注册成功";
+                $this->redirect('register\e\7');
             } else {
                 $this->redirect('register\e\6');
             }

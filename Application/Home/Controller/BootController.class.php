@@ -7,6 +7,6 @@ class BootController extends BaseController
     {
         $link = M('flink')->where(array('show'=>1))->select();
         $this->assign('link',$link);
-        $this->display('');
+        $this->display('Boot/index');
     }
 }

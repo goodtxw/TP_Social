@@ -37,7 +37,7 @@ class FriendlistController extends BaseController
         $this->assign('list',$fg_list);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
-        $this->display();
+        $this->display('Friendlist/index');
     }
 
     //访客列表
@@ -45,7 +45,7 @@ class FriendlistController extends BaseController
     {
         $link = M('flink')->where(array('show'=>1))->select();
         $this->assign('link',$link);
-        $this->display();
+        $this->display('Friendlist/visitor');
     }
 
     //搜索

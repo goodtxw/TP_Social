@@ -65,7 +65,7 @@
                         <!--头像，用户名，登录天数start-->
                         <dl class="hd-account cl">
                             <dt>
-                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}"><img src="__PUBLIC__/admin/images/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="{{$info.name}}"></a>
+                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}"><img src="__PUBLIC__/upload/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="{{$info.name}}"></a>
                             </dt>
                             <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" title="" class="hd-name">{{$info.name}}</a>
                                 <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" target="_blank" class="hd-logindays">{{$date}}天</a>
@@ -74,10 +74,10 @@
                         <!--头像，用户名，登录天数end-->
                         <!--设置 start-->
                         <div class="hd-account-action">
-                            <a href="#" class="account-more"><span class="ui-icon ui-icon-setting"></span></a>
+                            <a href="javascript:void(0)" class="account-more"><span class="ui-icon ui-icon-setting"></span></a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl">
-                                    <li class="nv-drop-privacy "><a href="">修改头像</a></li>
+                                    <li class="nv-drop-privacy "><a href="{{:U('Head/index')}}">修改头像</a></li>
                                     <li class="nv-drop-setting"><a href="">个人设置</a></li>
                                     <li class="nv-drop-pay"><a href="">隐私筛选</a></li>
                                     <li class="nv-account-sline"></li>
@@ -92,9 +92,9 @@
                             <a href="" class="account-more"><span><img src="__PUBLIC__/home/resources/u_pm.png"></span></a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl">
-                                    <li class="nv-drop-skin"><a href="#" target="_blank"><span class="grid_list_num"></span>消息</a></li>
-                                    <li class="nv-drop-skin"><a href="#" target="_blank">提醒<span class="grid_list_num"></span></a></li>
-                                    <li class="nv-drop-skin"><a href="#">新听众</a></li>
+                                    <li class="nv-drop-skin"><a href="javascript:void(0)"><span class="grid_list_num"></span>消息</a></li>
+                                    <li class="nv-drop-skin"><a href="javascript:void(0)">提醒<span class="grid_list_num"></span></a></li>
+                                    <li class="nv-drop-skin"><a href="javascript:void(0)">新听众</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -110,13 +110,13 @@
             <div id="frameFixedNav" class="frame-nav-fixed-wraper" style="top: 50px;">
                 <div class="frame-nav-inner">
                     <ul class="fd-nav-list clearfix">
-                        <li class="fd-nav-item"><a href="#">修改头像</a></li>
-                        <li class="fd-nav-item fd-nav-cur-item"><a href="#">个人资料</a></li>
-                        <li class="fd-nav-item"><a href="#">积分</a></li>
-                        <li class="fd-nav-item"><a href="#">用户组</a></li>
-                        <li class="fd-nav-item"><a href="#">隐私筛选</a></li>
+                        <li class="fd-nav-item"><a href="{{:U('Head/index')}}">修改头像</a></li>
+                        <li class="fd-nav-item fd-nav-cur-item"><a href="javascript:void(0)">个人资料</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">积分</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">用户组</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">隐私筛选</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Password/index')}}">密码安全</a></li>
-                        <li class="fd-nav-item"><a href="#">VIP购买</a></li>
+                        <li class="fd-nav-item"><a href="{{:U('Friendlist/index')}}">我的好友</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Album/index')}}">我的相册</a></li>
                     </ul>
                 </div>
@@ -128,10 +128,10 @@
             <ul class="tb cl">
                 <li class="a"><a href="javascript:void(0)" onclick="ziliao(this)">基本资料</a></li>
                 <li><a href="javascript:void(0)" onclick="jiaoyu(this)">教育情况</a></li>
-                <li><a href="#">联系方式</a></li>
-                <li><a href="#">工作情况</a></li>
-                <li><a href="#">个人信息</a></li>
-                <li><a href="#">更改用户名</a></li>
+                <li><a href="javascript:void(0)">联系方式</a></li>
+                <li><a href="javascript:void(0)">工作情况</a></li>
+                <li><a href="javascript:void(0)">个人信息</a></li>
+                <li><a href="javascript:void(0)">更改用户名</a></li>
             </ul>
             <div class="mn">
 

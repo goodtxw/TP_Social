@@ -95,7 +95,7 @@
                             </a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl ttt">
-                                    <li class="nv-drop-privacy "><a href="#">修改头像</a></li>
+                                    <li class="nv-drop-privacy "><a href="{{:U('Head/index')}}">修改头像</a></li>
                                     <li class="nv-drop-setting"><a href="#">个人设置</a></li>
                                     <li class="nv-drop-pay"><a href="#">隐私筛选</a></li>
                                     <li class="nv-account-sline"></li>
@@ -125,14 +125,14 @@
                 <div class="frame-nav-inner">
                     <ul class="fd-nav-list clearfix">
 
-                        <li class="fd-nav-item"><a href="#">修改头像</a></li>
+                        <li class="fd-nav-item"><a href="{{:U('Head/index')}}">修改头像</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Personaldata/index')}}">个人资料</a></li>
-                        <li class="fd-nav-item"><a href="#">积分</a></li>
-                        <li class="fd-nav-item"><a href="#">用户组</a></li>
-                        <li class="fd-nav-item"><a href="#">隐私筛选</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">积分</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">用户组</a></li>
+                        <li class="fd-nav-item"><a href="javascript:void(0)">隐私筛选</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Password/index')}}">密码安全</a></li>
                         <li class="fd-nav-item"><a href="{{:U('Friendlist/index')}}">我的好友</a></li>
-                        <li class="fd-nav-item fd-nav-cur-item"><a href="#">我的相册</a></li>
+                        <li class="fd-nav-item fd-nav-cur-item"><a href="javascript:void(0)">我的相册</a></li>
                     </ul>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                     <div class="nx-drop-box nx-simple-drop nx-account-drop">
                         <ul class="nv-account-ctrl cl ttt">
                             <li class="nv-drop-skin"><a href="javascript:void(0)" onclick="change_album('{{$album.id}}')">修改相册名</a></li>
-                            <li class="nv-drop-skin"><a href="#">批量操作</a></li>
+                            <li class="nv-drop-skin"><a href="javascript:void(0)">批量操作</a></li>
                             <li class="nv-drop-skin"><a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">上传图片</a></li>
                         </ul>
                     </div>
@@ -160,6 +160,7 @@
                     padding-left: 30px;
                 }
             </style>
+
             <!--上传图片-->
 
             <style>
@@ -198,6 +199,7 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.reload()">完成</button>
                         </div>
                     </div>
+
                 </div>
             </div>
             <script>

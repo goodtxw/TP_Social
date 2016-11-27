@@ -26,7 +26,7 @@
 
             $this->assign('list', $list);
             $this->assign('page', $show);
-            $this->display();
+            $this->display('Integral/index');
         }
 
         // 显示单个用户的积分详情
@@ -37,7 +37,7 @@
             $data = $inte->relation(true)->where(['u_id'=>['eq', $id]])->select();
 
             $this->assign('list', $data);
-            $this->display();
+            $this->display('Integral/list');
         }
 
         // 按照用户id搜索
@@ -47,6 +47,6 @@
             $list = $inte->relation(true)->where(['u_id'=>['eq',$user_id]])->field(array('sum(integral)'=>'suminte','u_id'))->group('u_id')->select();
 
             $this->assign('list', $list);
-            $this->display();
+            $this->display('Integral/integralSearch');
         }
     }
