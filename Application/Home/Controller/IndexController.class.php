@@ -5,6 +5,7 @@
     use Home\Model\ArticleModel;
     use Home\Model\ChatnowModel;
     use Home\Model\FriendGroupModel;
+    use Home\Model\SchoolModel;
 
     class IndexController extends BaseController
     {
@@ -79,6 +80,22 @@
             //用户注册天数 intval((当前时间-注册时间)/一天的秒数) 一天86400秒
             $date = intval((time()-$personal_info[0]['create_time'])/86400);
             $link = M('flink')->where(array('show'=>1))->select();
+
+            // 推荐好友
+            $user_school = M('school')->where(['u_id'=>['eq',session('id')]])->find();
+            $us = (new SchoolModel())->relation(true)->where("u_id<>{$user_school['u_id']} and (college='{$user_school['college']}' or middle_school='{$user_school['middle_school']}' or high_school='{$user_school['high_school']}')")->select();
+            $uf = [];
+            if (($cou = count($us)) > 6) {
+                $i = 0;
+                while($i < 6){
+                    $num = mt_rand(0, $cou-1);
+                    $uf[$num] = $us[$num];
+                    $i++;
+                }
+                $this->assign('us',$uf);
+            }else {
+                $this->assign('us',$us);
+            }
             $this->assign('link',$link);
             $this->assign('date',$date);
             $this->assign('article', $ar);
@@ -281,5 +298,11 @@
                     }
                 }
             }
+        }
+
+        public function search()
+        {
+            $user2 = M('user')->where(['name'=>['like','%'.$_POST['name'].'%']])->select();
+            echo json_encode($user2);
         }
     }

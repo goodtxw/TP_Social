@@ -53,15 +53,72 @@
                                 <!--顶部搜索-->
                                 <div class="hd-search">
                                     <form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus()" action="" target="_blank">
-                                        <input type="text" name="srchtxt" class="hd-search-input" autocomplete="off" placeholder="请输入搜索内容" style="height: 32px;width: 500px">
+                                        <input type="text" name="srchtxt" id="ttt-search" class="hd-search-input" autocomplete="off"  placeholder="请输入搜索内容" style="height: 32px;width: 500px">
                                         <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="hd-search-btn" value="true"></button>
                                     </form>
                                 </div>
 
+                                <style>
+                                    #ttt-search-list {
+                                        position: absolute;
+                                        width: 500px;
+                                        height: 200px;
+                                        background-color: #fff;
+                                        top:43px;
+                                        display: none;
+                                    }
+                                    #ttt-search-list ul li{
+                                        border-bottom: 1px solid #dedede;
+                                        padding-top: 5px;
+                                        padding-bottom: 5px;
+                                        padding-left: 10px;
+                                    }
+                                    #ttt-search-list ul li:hover{
+                                        background-color: #EBEBEB;
+                                        cursor: pointer;
+                                    }
+                                    #ttt-search-list ul li span {
+                                        font-size: 15px;
+                                        margin-left: 10px;
+                                    }
+                                    #ttt-search-list ul li a{
+                                        display: block;
+                                        width: 500px;
+                                        height: 40px;
+                                    }
+                                </style>
+                                <script>
+                                    $('#ttt-search').bind('input propertychange', function() {
+                                        if ($(this).val().trim() != '') {
+                                            $('#ttt-search-list').css({'display':'block'});
+                                            $('#ttt-search-ul').html('');
+                                            $.ajax({
+                                                type: 'post',
+                                                url: "{{:U('/Home/Index/search')}}",
+                                                data: {
+                                                    'name': $(this).val(),
+                                                },
+                                                success: function (data) {
+                                                    var data = eval("("+data+")");
+                                                    for (var i in data){
+                                                        $('#ttt-search-ul').append('<li id="li'+data[i]['id']+'"><a href="{{:U(\"/Home/Homepage/index/u_id/'+data[i]['id']+'\")}}"><img src="/Public/upload/'+data[i]['head_image']+'" width="40px" height="40px"><span>'+data[i]['name']+'</span></a></li>');
+                                                    }
+                                                }
+                                            });
+                                        }else {
+                                            $('#ttt-search-list').css({'display':'none'});
+                                            $('#ttt-search-ul').html('');
+                                        }
+                                    });
+                                </script>
+                                <div id="ttt-search-list">
+                                    <ul id="ttt-search-ul">
+
+                                    </ul>
+                                </div>
 
                                 <dl class="hd-account cl">
                                     <dt>
-
                                         <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
                                             <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="{{$user.name}}">
                                         </a>
@@ -369,32 +426,49 @@
 
                     <!-- 右边侧边栏开始 -->
                     <div class="bd-content cl">
-
                         <div class="nx-right ">
-                            <div class="side-item cl" style="height: 145px">
-                                <h1 style="padding: 10px;">
-                                    <a href="" style="font-size: 16px;">留言板</a>
-                                    <a href="" id="a_favorite" class="fa_fav y" onclick="showWindow();">
-                                        收藏本版 <strong class="xi1" id="number_favorite">(<span id="number_favorite_num">115</span>)</strong>
-                                    </a>
-                                    <div style="height: 2px;width: 10px"></div>
-                                    <br><br>
-                                    <span class="xs1 xw0 i">今日:
-                                        <strong class="xi1">93</strong>
-                                        <span class="pipe">|</span>主题:
-                                        <strong class="xi1">25939</strong>
-                                        <span class="pipe">|</span>排名:
-                                        <strong class="xi1" title="上次排名:1">1</strong>
-                                    </span>
-                                </h1>
+                            <!--<div class="side-item cl" style="height: 145px">-->
+                                <!--<h1 style="padding: 10px;">-->
+                                    <!--<a href="" style="font-size: 16px;">留言板</a>-->
+                                    <!--<a href="" id="a_favorite" class="fa_fav y" onclick="showWindow();">-->
+                                        <!--收藏本版 <strong class="xi1" id="number_favorite">(<span id="number_favorite_num">115</span>)</strong>-->
+                                    <!--</a>-->
+                                    <!--<div style="height: 2px;width: 10px"></div>-->
+                                    <!--<br><br>-->
+                                    <!--<span class="xs1 xw0 i">今日:-->
+                                        <!--<strong class="xi1">93</strong>-->
+                                        <!--<span class="pipe">|</span>主题:-->
+                                        <!--<strong class="xi1">25939</strong>-->
+                                        <!--<span class="pipe">|</span>排名:-->
+                                        <!--<strong class="xi1" title="上次排名:1">1</strong>-->
+                                    <!--</span>-->
+                                <!--</h1>-->
 
-                                <div style="padding: 10px;">
-                                    <div id="forum_rules_2" style=";">
-                                        <div class="ptn xg2">在这里你可以随时随地分享新鲜事！</div>
-                                    </div>
+                                <!--<div style="padding: 10px;">-->
+                                    <!--<div id="forum_rules_2" style=";">-->
+                                        <!--<div class="ptn xg2">在这里你可以随时随地分享新鲜事！</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <style>
+                                .ttt-tj-f {
+                                    float: left;
+                                }
+                            </style>
+                            <div style="width: 240px;height: 225px;margin-bottom:18px;border:2px solid #dedede;background-color: white">
+                                <div style="width: 100%;height: 40px;">
+                                    <span style="float: left;margin-left: 9px;font-size: 15px;line-height: 40px;">推荐好友</span>
+                                    <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-right" style="float: right;margin-right:10px;line-height: 40px;color: #BFBFBF;text-underline: none"></a>
+                                </div>
+                                <div style="width: 100%;">
+                                    <volist name="us" id="us">
+                                        <div class="ttt-tj-f" style="width: 74px;height: 89px;margin:2px 2px 0;text-align: center">
+                                            <a href="{{:U('/Home/Homepage/index/u_id/'.$us['User']['id'])}}"><img src="__PUBLIC__/upload/{{$us.User.head_image}}" width="58px" height="58px" alt=""></a>
+                                            <p style="padding: 0 3px 0 3px;font-size: 13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color: #A9A9A9;margin-top: 2px">{{$us.User.name}}</p>
+                                        </div>
+                                    </volist>
                                 </div>
                             </div>
-
 
                             <div id="diy1" class="area">
                                 <div id="frameUZv8vE" class="frame move-span cl frame-1">
@@ -1316,7 +1390,7 @@
             }
 
             // websocket
-            var ws = new WebSocket('ws://192.168.20.144:8282');
+            var ws = new WebSocket('ws://127.0.0.1:8282');
             // 链接成功时
             ws.onopen = function(){
                 var uid = '{{$user.id}}';
@@ -1348,9 +1422,10 @@
                 if(($('.ttt-chat-window'+received_msg['from_id']).length) <= 0){
                     createchatwindow(received_msg['from_id'],received_msg['uname'],received_msg['img']);
                     $('.ttt-chat-window'+received_msg['from_id']).hide();
+                }else {
+                    // 更新
+                    $('.ttt-chat-msg'+received_msg['from_id']).append('<div class="ttt-chat-msg-left"><img src="__PUBLIC__/upload/'+received_msg['img']+'"><div style=""><div >'+received_msg['content']+'</div></div></div>');
                 }
-                // 更新
-//                $('.ttt-chat-msg'+received_msg['from_id']).append('<div class="ttt-chat-msg-left"><img src="__PUBLIC__/upload/'+received_msg['img']+'"><div style=""><div >'+received_msg['content']+'</div></div></div>');
                 // 更新正在聊天最新信息
                 $('.ttt-chat-li-p'+received_msg['from_id']).html(received_msg['content']);
                 // 判断与该用户的聊天窗口是否是隐藏
@@ -1408,15 +1483,15 @@
                         if(data.u_from_id == data.u_id){
                             var dom = '<div class="ttt-chat-msg-right"><img src="__PUBLIC__/upload/{{$user.head_image}}"><div style=""><div>'+data.content+'</div></div></div>';
                             // $('.ttt-chat-msg'+user_id).html(' ');
-                            var t = '<div class="ttt-chat-msg-time">- <span>'+new Date(parseInt(data.time) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日|下|午/g, " ")+'</span> -</div>';
+//                            var t = '<div class="ttt-chat-msg-time">- <span>'+new Date(parseInt(data.time) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日|下|午/g, " ")+'</span> -</div>';
                             $('.ttt-chat-msg'+user_id).prepend(dom);
-                            $('.ttt-chat-msg'+user_id).prepend(t);
+//                            $('.ttt-chat-msg'+user_id).prepend(t);
                         }else {
                             var dom = '<div class="ttt-chat-msg-left"><img src="__PUBLIC__/upload/'+uimg+'"><div style=""><div >'+data.content+'</div></div></div>';
                             // $('.ttt-chat-msg'+user_id).html(' ');
-                            var t = '<div class="ttt-chat-msg-time">- <span>'+new Date(parseInt(data.time) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日|下|午/g, " ")+'</span> -</div>';
+//                            var t = '<div class="ttt-chat-msg-time">- <span>'+new Date(parseInt(data.time) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日|下|午/g, " ")+'</span> -</div>';
                             $('.ttt-chat-msg'+user_id).prepend(dom);
-                            $('.ttt-chat-msg'+user_id).prepend(t);
+//                            $('.ttt-chat-msg'+user_id).prepend(t);
 
                         }
                         // 为发送按钮绑定事件
