@@ -27,7 +27,7 @@ class PersonaldataController extends BaseController
         $this->assign('school',$school[0]);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
-        $this->display();
+        $this->display('Personaldata/index');
     }
 
     //执行修改

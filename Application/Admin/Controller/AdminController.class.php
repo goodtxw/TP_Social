@@ -57,6 +57,12 @@ class AdminController extends CommonController
     //执行添加
     public function doadd()
     {
+        //用户名唯一
+        $name = M('admin')->where(array('name'=>$_POST['name']))->select();
+        if($name){
+            $this->redirect('add\s\3');
+            die;
+        }
         $data = [];
         $data['name'] = $_POST['name'];
         $data['pwd'] = $_POST['password'];
@@ -88,6 +94,8 @@ class AdminController extends CommonController
             $this->assign('success',1);
         }elseif ($s == 2){
             $this->assign('success',2);
+        }elseif ($s == 3){
+            $this->assign('success',3);
         }
         $this->display('Admin/add');
     }
@@ -95,6 +103,10 @@ class AdminController extends CommonController
     // 执行删除
     public function delete($id)
     {
+        $admin = M('admin')->where(array('id'=>$id))->select();
+        if($admin[0]['level'] == 1){
+            $this->error('超级管理员无法删除');
+        }
         $comment = M('admin');
         // 删除成功
         if ($comment->where(['id' => ['eq', $id]])->delete()) {
@@ -145,6 +157,6 @@ class AdminController extends CommonController
         $list = M('admin')->where($where)->limit($page->firstRow.','.$page->listRows)->order('id desc')->select();
         $this->assign('list', $list);
         $this->assign('page', $show);
-        $this->display();
+        $this->display('Admin/adminSelect');
     }
 }

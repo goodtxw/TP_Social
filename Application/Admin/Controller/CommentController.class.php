@@ -23,7 +23,7 @@
             $list = $comment->relation(true)->where()->limit($page->firstRow.','.$page->listRows)->select();
             $this->assign('list', $list);
             $this->assign('page', $show);
-            $this->display();
+            $this->display('Comment/index');
         }
 
 
@@ -75,7 +75,7 @@
 
             $this->assign('page', $show);
             $this->assign('list', $list);
-            $this->display();
+            $this->display('Comment/commentSearch');
         }
 
     }

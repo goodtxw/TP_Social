@@ -83,6 +83,7 @@
         public function logout()
         {
             session('id',null); // 清空所有的session
+            session('date_yzm',null);
             $this->redirect('Login/login');
         }
     }

@@ -61,7 +61,8 @@ class ArticleController extends CommonController
     {
         //接收ID
         $id = I('get.id/d');
-
+        M('image')->article_id = 0;
+        M('image')->where(array('article_id'=>$id))->save();
         if(M('article')->delete($id)>0){
             $this->redirect('index\s\1');
         }else{
@@ -108,7 +109,6 @@ class ArticleController extends CommonController
 
         $this->assign('page', $show);
         $this->assign('list', $list);
-        $this->display();
-
+        $this->display('Article/articleSearch');
     }
 }

@@ -16,7 +16,7 @@ return array(
     // 0 (普通模式); 1 (PATHINFO 模式); 2 (REWRITE  模式); 3 (兼容模式)  默认为PATHINFO 模式
 
     // 显示页面Trace信息
-    'SHOW_PAGE_TRACE' =>true,
+//    'SHOW_PAGE_TRACE' =>true,
 
     'PUBLIC' => '/Public',
     'LOCAL_PATH' => $_SERVER['DOCUMENT_ROOT'] . '/Public',

@@ -169,6 +169,6 @@ class UserController extends CommonController
         $list = M('user')->where($where)->limit($page->firstRow.','.$page->listRows)->order('id desc')->select();
         $this->assign('list', $list);
         $this->assign('page', $show);
-        $this->display();
+        $this->display('User/userSelect');
     }
 }

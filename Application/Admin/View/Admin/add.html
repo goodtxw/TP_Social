@@ -19,7 +19,7 @@
                         <label>密码：</label>
                     </div>
                     <div class="field">
-                        <input type="password" class="input w50" value="" name="password" data-validate="required:请输入密码,length#>=6:新密码不能小于6位" />
+                        <input type="password" class="input w50" value="" name="password" data-validate="required:请输入密码,length#>=6:新密码不能小于6位,length#<=10:新密码不能大于10位" />
                         <div class="tips"></div>
                     </div>
                 </div>
@@ -42,8 +42,12 @@
         <script>layer.alert('恭喜您，添加成功！', {icon: 6},function(index){
             window.location.href="{{:U('Admin/index')}}";
         });</script>
-        <elseif condition="$success eq 2"/>
+    <elseif condition="$success eq 2"/>
         <script>layer.alert('添加失败', {icon: 5},function(index){
+            window.location.href="{{:U('Admin/add')}}";
+        });</script>
+    <elseif condition="$success eq 3"/>
+        <script>layer.alert('用户名已存在', {icon: 5},function(index){
             window.location.href="{{:U('Admin/add')}}";
         });</script>
     </if>

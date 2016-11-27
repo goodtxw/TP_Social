@@ -14,7 +14,7 @@ class PasswordController extends CommonController
         }
         $data = M('admin')->where(array('id'=>session('admin_id')))->select();
         $this->assign('data',$data[0]);
-        $this->display();
+        $this->display('Password/index');
     }
 
     //修改密码
@@ -24,6 +24,7 @@ class PasswordController extends CommonController
         if($data[0]['pwd'] == $_POST['oldpass']){
             M('admin')->pwd = $_POST['newpass'];
             M('admin')->where(array('id'=>session('admin_id')))->save();
+            session('admin_id',null);
             $this->redirect('index\s\1');
         }else{
             $this->redirect('index\s\2');

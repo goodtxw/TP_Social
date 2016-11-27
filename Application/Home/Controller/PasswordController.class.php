@@ -1,6 +1,6 @@
 <?php
-
 namespace Home\Controller;
+
 
 class PasswordController extends BaseController
 {
@@ -20,6 +20,10 @@ class PasswordController extends BaseController
             $this->assign('error',6);
         }elseif ($e == 7){
             $this->assign('error',7);
+        }elseif ($e == 8){
+            $this->assign('error',8);
+        }elseif ($e == 9){
+            $this->assign('error',9);
         }
 
         $personal_info = M('user')->where(array('id'=>session('id')))->select();
@@ -28,8 +32,54 @@ class PasswordController extends BaseController
         $this->assign('link',$link);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);
-        $this->display();
+        $this->display('Password/index');
     }
+
+    //发送短信验证码
+    function sendTemplateSMS($to,$datas,$tempId)
+    {
+        $accountSid = '8aaf0708582eefe901584196d0e50ba6';
+        $accountToken = 'a128215efbf44cf58ea3c2b7930c0b6c';
+        $appId ='8aaf0708582eefe901584196d1720baa';
+        $serverIP ='app.cloopen.com';
+        $serverPort ='8883';
+        $softVersion ='2013-12-26';
+        // 初始化REST SDK
+//        global $accountSid,$accountToken,$appId,$serverIP,$serverPort,$softVersion;
+        $rest = new \Org\SDK\REST($serverIP,$serverPort,$softVersion);
+        $rest->setAccount($accountSid,$accountToken);
+        $rest->setAppId($appId);
+
+        // 发送模板短信
+        echo "Sending TemplateSMS to $to <br/>";
+        $result = $rest->sendTemplateSMS($to,$datas,$tempId);
+        if($result == NULL ) {
+            echo "result error!";
+            die;
+        }
+        if($result->statusCode!=0) {
+            echo "error code :" . $result->statusCode . "<br>";
+            echo "error msg :" . $result->statusMsg . "<br>";
+
+        }else{
+            echo "Sendind TemplateSMS success!<br/>";
+            // 获取返回信息
+            $smsmessage = $result->TemplateSMS;
+            echo "dateCreated:".$smsmessage->dateCreated."<br/>";
+            echo "smsMessageSid:".$smsmessage->smsMessageSid."<br/>";
+
+        }
+    }
+
+    //生成验证码
+    public function date_yzm()
+    {
+        //生成一个随机四位数
+        $number = rand(1000,9999);
+        $result = $this->sendTemplateSMS("18852951207",array("$number",'5'),"1");
+        session('date_yzm',$number);
+    }
+
 
     //修改密码
     public function password()
@@ -47,6 +97,16 @@ class PasswordController extends BaseController
         //确认新密码
         if($_POST['newpwd2'] == ''){
             $this->redirect('Password/index?e=3');
+            die;
+        }
+        //验证码
+        if($_POST['yzm'] == ''){
+            $this->redirect('Password/index?e=8');
+            die;
+        }
+        //检查验证码
+        if($_POST['yzm'] != session('date_yzm')){
+            $this->redirect('Password/index?e=9');
             die;
         }
         //检查原密码

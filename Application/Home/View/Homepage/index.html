@@ -85,7 +85,7 @@
                         <!--头像、用户名、登录天数start-->
                         <dl class="hd-account cl">
                             <dt>
-                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}"><img src="__PUBLIC__/admin/images/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="{{$info.name}}"></a>
+                                <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}"><img src="__PUBLIC__/upload/{{$info.head_image}}" class="hd-avatar" width="30" height="30" alt="{{$info.name}}"></a>
                             </dt>
                             <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" class="hd-name">{{$info.name}}</a>
                                 <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" class="hd-logindays">{{$date}}天</a>
@@ -105,7 +105,7 @@
                             <a href="#" class="account-more"><span class="ui-icon ui-icon-setting"></span></a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl ttt">
-                                    <li class="nv-drop-privacy"><a href="#">修改头像</a></li>
+                                    <li class="nv-drop-privacy"><a href="{{:U('Head/index')}}">修改头像</a></li>
                                     <li class="nv-drop-setting"><a href="#">个人设置</a></li>
                                     <li class="nv-drop-pay"><a href="#">隐私筛选</a></li>
                                     <li class="nv-account-sline"></li>

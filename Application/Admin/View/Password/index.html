@@ -54,7 +54,7 @@
 <block name="script">
     <if condition="$success eq 1">
         <script>layer.alert('修改成功！', {icon: 6},function(index){
-            window.location.href="{{:U('Password/index')}}";
+            parent.location.href="{{:U('Index/index')}}";
         });</script>
         <elseif condition="$success eq 2"/>
         <script>layer.alert('修改失败', {icon: 5},function(index){
