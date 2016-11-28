@@ -29,6 +29,9 @@ class PasswordController extends BaseController
         $personal_info = M('user')->where(array('id'=>session('id')))->select();
         $date = intval((time()-$personal_info[0]['create_time'])/86400);
         $link = M('flink')->where(array('show'=>1))->select();
+        //消息提醒
+        $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+        $this->assign('remind',$remind);
         $this->assign('link',$link);
         $this->assign('date',$date);
         $this->assign('info',$personal_info[0]);

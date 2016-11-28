@@ -55,7 +55,7 @@
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl">
                                     <li class="nv-drop-privacy "><a href="{{:U('Head/index')}}">修改头像</a></li>
-                                    <li class="nv-drop-setting"><a href="javascript:void(0)">个人设置</a></li>
+                                    <li class="nv-drop-setting"><a href="{{:U('Personaldata/index')}}">个人设置</a></li>
                                     <li class="nv-drop-pay"><a href="javascript:void(0)">隐私筛选</a></li>
                                     <li class="nv-account-sline"></li>
                                     <li class="nv-drop-guide"><a href="{{:U('Password/index')}}">密码安全</a></li>
@@ -65,11 +65,18 @@
                         </div>
                         <div class="hd-account-action hd-account-action-vip">
                             <a href="javascript:void(0)" class="account-more"><span><img
-                                    src="__PUBLIC__/home/resources/u_pm.png"></span></a>
+                                    src="__PUBLIC__/home/resources/u_pm.png"></span>
+                                <if condition="$remind eq 0">
+                                    <else /><span class="pm_n">{{$remind}}</span>
+                                </if>
+                            </a>
                             <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                 <ul class="nv-account-ctrl cl">
-                                    <li class="nv-drop-skin"><a href="javascript:void(0)" target="_blank"><span class="grid_list_num"></span>消息</a></li>
-                                    <li class="nv-drop-skin"><a href="javascript:void(0)" target="_blank">提醒<span class="grid_list_num"></span></a></li>
+                                    <li class="nv-drop-skin"><a href="javascript:void(0)"><span class="grid_list_num"></span>消息</a></li>
+                                    <li class="nv-drop-skin"><a href="{{:U('Friendask/index')}}">提醒
+                                        <if condition="$remind eq 0">
+                                            <else />({{$remind}})
+                                        </if><span class="grid_list_num"></span></a></li>
                                     <li class="nv-drop-skin"><a href="javascript:void(0)">新听众</a></li>
                                 </ul>
                             </div>
@@ -113,7 +120,7 @@
                 <li><a href="javascript:void(0)">当前在线的好友</a></li>
                 <li><a href="javascript:void(0)">在线成员</a></li>
                 <li><a href="javascript:void(0)">就在我附近的朋友</a></li>
-                <li><a href="{{:U('Friendlist/visitor')}}">我的访客</a></li>
+                <li><a href="javascript:void(0)">我的访客</a></li>
                 <li><a href="javascript:void(0)">我的足迹</a></li>
                 <li><a href="javascript:void(0)">我的黑名单</a></li>
             </ul>
