@@ -175,7 +175,7 @@
                                 <div class="hd-account-action hd-account-action-vip">
                                     <a href="" class="account-more" style="margin-top: 5px"><span><img src="__PUBLIC__/home/resources/u_pm.png">
                                         </span>
-                                        <if condition="$remind"><span class="pm_n" style="font-size: 13px">{{$remind|count}}</span></if>
+                                        <if condition="$remind"><span class="pm_n" style="font-size: 13px">{{$remind}}</span></if>
                                     </a>
                                     <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                         <ul class="nv-account-ctrl cl ttt">
@@ -186,7 +186,7 @@
                                             </li>
                                             <li class="nv-drop-skin">
                                                 <a href="{{:U('/Home/Friendask/index')}}">
-                                                    新提醒<span class="grid_list_num"> <if condition="$remind">（{{$remind|count}}）</if></span>
+                                                    新提醒<span class="grid_list_num"> <if condition="$remind">（{{$remind}}）</if></span>
                                                 </a>
                                             </li>
                                             <li class="nv-drop-skin">
