@@ -29,9 +29,9 @@ class FriendaskController extends BaseController
     {
         //修改好友请求表，agree=>1(同意) 2(拒绝)
         M('friend_request')->agree = 1;
-        M('friend_request')->where(array('u_id'=>session('id'),'r_id'=>$_POST['id']))->save();
+        M('friend_request')->where(array('r_id'=>session('id'),'u_id'=>$_POST['id']))->save();
         //检测登录用户是否有未分组好友分组，有将好友放在该组，没有创建‘未分组好友’
-        $group = M('friend_group')->where(array('u_id'=>session('id'),'name'=>'未分组好友'))->select();
+        $group = M('friend_group')->where(array('r_id'=>session('id'),'name'=>'未分组好友'))->select();
         if(empty($group)){
             //创建分组
             $map = [];
@@ -115,7 +115,7 @@ class FriendaskController extends BaseController
     {
         //修改好友请求表，agree=>1(同意) 2(拒绝)
         M('friend_request')->agree = 2;
-        M('friend_request')->where(array('u_id'=>session('id'),'r_id'=>$_POST['id']))->save();
+        M('friend_request')->where(array('r_id'=>session('id'),'u_id'=>$_POST['id']))->save();
         echo 1;
     }
 
