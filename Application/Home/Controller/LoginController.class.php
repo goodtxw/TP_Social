@@ -70,6 +70,16 @@
                             $map['u_id'] = session('id');
                             M('friend_group')->add($map);
                         }
+                        // 增加积分
+                        $u = M('user')->where(['email'=>['eq',$_POST['email']]])->find();
+                        $data = [];
+                        $data['u_id']=$u['id'];
+                        $data['integral']=5;
+                        $data['way']=0;
+                        $data['article_id']=0;
+                        $data['com_id']=0;
+                        $data['time']=time();
+                        M('integral')->add($data);
                         $this->redirect('Index/index');
                         die;
                     }else{

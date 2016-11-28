@@ -9,7 +9,7 @@
 
     class IndexController extends BaseController
     {
-        public function index()
+        public function index($t = '')
         {
             if (!session('id')){
                 $this->redirect('/Home/Login/login');
@@ -50,11 +50,19 @@
             }
             // 查询所有好友的信息
             $friendAll = M('user')->where(['id'=>['in',$friend_id]])->field(['id','name','head_image'])->select();
-            // 查询正在会话的好友信息
-            $chatNow = (new ChatnowModel())->relation(true)->order("id desc")->where(['u_id'=>['eq',session('id')]])->select();
+            if ($friendAll){
+                // 查询正在会话的好友信息
+                $chatNow = (new ChatnowModel())->relation(true)->order("id desc")->where(['u_id'=>['eq',session('id')]])->select();
+            }
             // 根据用户的id查询文章 已时间倒叙排序
             $article = new ArticleModel();
-            $ar = $article->relation(true)->where("(u_id in (".$friend.") and privacy<>2) or (u_id=".session('id')." and privacy=2)")->order('time desc')->select();
+            if ($t == 1){
+                $ar = $article->relation(true)->where("(u_id in (".$friend.") and privacy<>2 and pid=0) or (u_id=".session('id')." and privacy=2 and pid=0)")->order('time desc')->select();
+            }elseif($t == 2) {
+                $ar = $article->relation(true)->where("(u_id in (".$friend.") and privacy<>2 and pid<>0) or (u_id=".session('id')." and privacy=2 and pid<>0)")->order('time desc')->select();
+            }else{
+                $ar = $article->relation(true)->where("(u_id in (".$friend.") and privacy<>2) or (u_id=".session('id')." and privacy=2)")->order('time desc')->select();
+            }
             if (count($ar)>0){
                 // 查找评论用户的name与image
                 $comment_user = [];
@@ -83,19 +91,23 @@
 
             // 推荐好友
             $user_school = M('school')->where(['u_id'=>['eq',session('id')]])->find();
-            $us = (new SchoolModel())->relation(true)->where("u_id<>{$user_school['u_id']} and (college='{$user_school['college']}' or middle_school='{$user_school['middle_school']}' or high_school='{$user_school['high_school']}')")->select();
-            $uf = [];
-            if (($cou = count($us)) > 6) {
-                $i = 0;
-                while($i < 6){
-                    $num = mt_rand(0, $cou-1);
-                    $uf[$num] = $us[$num];
-                    $i++;
+            if($user_school){
+                $us = (new SchoolModel())->relation(true)->where("u_id<>{$user_school['u_id']} and (college='{$user_school['college']}' or middle_school='{$user_school['middle_school']}' or high_school='{$user_school['high_school']}')")->select();
+                $uf = [];
+                if (($cou = count($us)) > 6) {
+                    $i = 0;
+                    while($i < 6){
+                        $num = mt_rand(0, $cou-1);
+                        $uf[$num] = $us[$num];
+                        $i++;
+                    }
+                    $this->assign('us',$uf);
+                }else {
+                    $this->assign('us',$us);
                 }
-                $this->assign('us',$uf);
-            }else {
-                $this->assign('us',$us);
             }
+            $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+            $this->assign('remind',$remind);
             $this->assign('link',$link);
             $this->assign('date',$date);
             $this->assign('article', $ar);
@@ -119,6 +131,16 @@
             $data['time'] = time();
             $art = M('article');
             if ($insertId = $art->add($data)) {
+                // 增加积分
+                $u = M('user')->where(['id'=>['eq',session('id')]])->find();
+                $data = [];
+                $data['u_id']=$u['id'];
+                $data['integral']=5;
+                $data['way']=1;
+                $data['article_id']=$insertId;
+                $data['com_id']=0;
+                $data['time']=time();
+                M('integral')->add($data);
                 // 图片名
                 $img = explode(',', $_POST['img']);
                 array_pop($img);
@@ -130,6 +152,7 @@
                         $data['u_id'] = session('id');
                         $data['name'] = '新上传图片';
                         $data['time'] = time();
+                        // 创建相册
                         if ($album_id = $album->add($data)) {
                             $image = M('image');
                             $data = Array();
@@ -154,7 +177,6 @@
                             }else {
                                 echo 'err';
                             }
-//                            var_dump($data);
                         }
                     } else {
                         $image = M('image');
@@ -201,6 +223,17 @@
             $data['u_id'] = session('id');
             $data['time'] = time();
             if($lastInsertId = $comment->add($data)){
+                // 增加积分
+                $u = M('user')->where(['id'=>['eq',session('id')]])->find();
+                $data = [];
+                $data['u_id']=$u['id'];
+                $data['integral']=5;
+                $data['way']=2;
+                $data['article_id']=0;
+                $data['com_id']=$article_id;
+                $data['time']=time();
+                M('integral')->add($data);
+
                 $commentInfo = $comment->where(['id'=>['eq',$lastInsertId]])->find();
                 $user = M('user');
                 $userInfo = $user->where(['id'=>['eq',$commentInfo['u_id']]])->find();

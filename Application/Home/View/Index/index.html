@@ -120,7 +120,7 @@
                                 <dl class="hd-account cl">
                                     <dt>
                                         <a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}">
-                                            <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="{{$user.name}}">
+                                                <img src="__PUBLIC__/upload/{{$user.head_image}}"class="hd-avatar" width="30" height="30" alt="{{$user.name}}">
                                         </a>
                                     </dt>
                                     <dd><a href="{{:U('Homepage/index',array('u_id'=>session('id')))}}" title="" class="hd-name">{{$user.name}}</a>
@@ -149,7 +149,7 @@
                                                 </a>
                                             </li>
                                             <li class="nv-drop-setting">
-                                                <a href="">
+                                                <a href="{{:U('/Home/Personaldata/index')}}">
                                                     个人设置
                                                 </a>
                                             </li>
@@ -174,7 +174,8 @@
                                 </div>
                                 <div class="hd-account-action hd-account-action-vip">
                                     <a href="" class="account-more" style="margin-top: 5px"><span><img src="__PUBLIC__/home/resources/u_pm.png">
-                                        </span><span class="pm_n">n</span>
+                                        </span>
+                                        <if condition="$remind"><span class="pm_n" style="font-size: 13px">{{$remind|count}}</span></if>
                                     </a>
                                     <div class="nx-drop-box nx-simple-drop nx-account-drop">
                                         <ul class="nv-account-ctrl cl ttt">
@@ -184,8 +185,8 @@
                                                 </a>
                                             </li>
                                             <li class="nv-drop-skin">
-                                                <a href="">
-                                                    新提醒<span class="grid_list_num">( 2 )</span>
+                                                <a href="{{:U('/Home/Friendask/index')}}">
+                                                    新提醒<span class="grid_list_num"> <if condition="$remind">（{{$remind|count}}）</if></span>
                                                 </a>
                                             </li>
                                             <li class="nv-drop-skin">
@@ -214,16 +215,13 @@
                                         <span class="ui-icon ui-icon-caratb"></span>
                                         <ul class="newsfeed-filter-list">
                                             <li>
-                                                <a href="" hidefocus="true">只看照片</a>
+                                                <a href="{{:U('/Home/Index/index/')}}" hidefocus="true">查看全部</a>
                                             </li>
                                             <li>
-                                                <a href="" hidefocus="true">只看视屏</a>
+                                                <a href="{{:U('/Home/Index/index/t/1')}}" hidefocus="true">只看状态</a>
                                             </li>
                                             <li>
-                                                <a href="" hidefocus="true">只看状态</a>
-                                            </li>
-                                            <li>
-                                                <a href="" hidefocus="true">只看分享</a>
+                                                <a href="{{:U('/Home/Index/index/t/2')}}" hidefocus="true">只看分享</a>
                                             </li>
                                         </ul>
                                     </span>
@@ -321,54 +319,54 @@
                                         </div>
 
 
-                                        <div id="appsNav" class="homeSideNav">
-                                            <h4 class="navHeader"><span class="sectionDragHandle">应用</span></h4>
+                                        <!--<div id="appsNav" class="homeSideNav">-->
+                                            <!--<h4 class="navHeader"><span class="sectionDragHandle">应用</span></h4>-->
 
-                                            <ul class="_bui nonDroppableNav _3-96 ttt1">
-                                                <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="搜索好友" href="">
-                                                        <span class="imgWrap">
-                                                            <img src="__PUBLIC__/home/resources/icon_46.gif">
-                                                        </span>
-                                                        <div class="linkWrap noCount">
-                                                            <span>搜索好友</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
+                                            <!--<ul class="_bui nonDroppableNav _3-96 ttt1">-->
+                                                <!--<li class="cl sideNavItem stat_elem">-->
+                                                    <!--<a target="_blank" class="_5afe" title="搜索好友" href="">-->
+                                                        <!--<span class="imgWrap">-->
+                                                            <!--<img src="__PUBLIC__/home/resources/icon_46.gif">-->
+                                                        <!--</span>-->
+                                                        <!--<div class="linkWrap noCount">-->
+                                                            <!--<span>搜索好友</span>-->
+                                                        <!--</div>-->
+                                                    <!--</a>-->
+                                                <!--</li>-->
 
-                                                <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="收藏夹" href="">
-                                                        <span class="imgWrap">
-                                                            <img src="__PUBLIC__/home/resources/icon_74.gif">
-                                                        </span>
-                                                        <div class="linkWrap noCount">
-                                                            <span>收藏夹</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
+                                                <!--<li class="cl sideNavItem stat_elem">-->
+                                                    <!--<a target="_blank" class="_5afe" title="收藏夹" href="">-->
+                                                        <!--<span class="imgWrap">-->
+                                                            <!--<img src="__PUBLIC__/home/resources/icon_74.gif">-->
+                                                        <!--</span>-->
+                                                        <!--<div class="linkWrap noCount">-->
+                                                            <!--<span>收藏夹</span>-->
+                                                        <!--</div>-->
+                                                    <!--</a>-->
+                                                <!--</li>-->
 
-                                                <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="捏橘子1" href="">
-                                                        <span class="imgWrap">
-                                                            <img src="__PUBLIC__/home/resources/icon_32.gif">
-                                                        </span>
-                                                        <div class="linkWrap noCount">
-                                                            <span>捏橘子1</span>
-                                                        </div>
-                                                    </a></li>
+                                                <!--<li class="cl sideNavItem stat_elem">-->
+                                                    <!--<a target="_blank" class="_5afe" title="捏橘子1" href="">-->
+                                                        <!--<span class="imgWrap">-->
+                                                            <!--<img src="__PUBLIC__/home/resources/icon_32.gif">-->
+                                                        <!--</span>-->
+                                                        <!--<div class="linkWrap noCount">-->
+                                                            <!--<span>捏橘子1</span>-->
+                                                        <!--</div>-->
+                                                    <!--</a></li>-->
 
-                                                <li class="cl sideNavItem stat_elem">
-                                                    <a target="_blank" class="_5afe" title="捏橘子2" href="">
-                                                        <span class="imgWrap">
-                                                            <img src="__PUBLIC__/home/resources/icon_32.gif">
-                                                        </span>
-                                                        <div class="linkWrap noCount">
-                                                            <span>捏橘子2</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                                <!--<li class="cl sideNavItem stat_elem">-->
+                                                    <!--<a target="_blank" class="_5afe" title="捏橘子2" href="">-->
+                                                        <!--<span class="imgWrap">-->
+                                                            <!--<img src="__PUBLIC__/home/resources/icon_32.gif">-->
+                                                        <!--</span>-->
+                                                        <!--<div class="linkWrap noCount">-->
+                                                            <!--<span>捏橘子2</span>-->
+                                                        <!--</div>-->
+                                                    <!--</a>-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+                                        <!--</div>-->
 
 
                                         <div id="groupsNav" class="homeSideNav">
@@ -461,12 +459,18 @@
                                     <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-right" style="float: right;margin-right:10px;line-height: 40px;color: #BFBFBF;text-underline: none"></a>
                                 </div>
                                 <div style="width: 100%;">
-                                    <volist name="us" id="us">
-                                        <div class="ttt-tj-f" style="width: 74px;height: 89px;margin:2px 2px 0;text-align: center">
-                                            <a href="{{:U('/Home/Homepage/index/u_id/'.$us['User']['id'])}}"><img src="__PUBLIC__/upload/{{$us.User.head_image}}" width="58px" height="58px" alt=""></a>
-                                            <p style="padding: 0 3px 0 3px;font-size: 13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color: #A9A9A9;margin-top: 2px">{{$us.User.name}}</p>
-                                        </div>
-                                    </volist>
+                                    <if condition="$us">
+                                        <volist name="us" id="us">
+                                            <div class="ttt-tj-f" style="width: 74px;height: 89px;margin:2px 2px 0;text-align: center">
+                                                <a href="{{:U('/Home/Homepage/index/u_id/'.$us['User']['id'])}}"><img src="__PUBLIC__/upload/{{$us.User.head_image}}" width="58px" height="58px" alt=""></a>
+                                                <p style="padding: 0 3px 0 3px;font-size: 13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color: #A9A9A9;margin-top: 2px">{{$us.User.name}}</p>
+                                            </div>
+                                        </volist>
+                                    <else/>
+                                        <center style="line-height: 150px">
+                                            完善资料后即可推荐好友！
+                                        </center>
+                                    </if>
                                 </div>
                             </div>
 
@@ -479,7 +483,7 @@
                                                 <div class="portal_block_summary">
                                                     <div class="side-item bw0">
                                                         <div class="side-item-advert">
-                                                            <a href="" class="btn_vime">每日签到</a>
+                                                            <a href="" class="btn_vime" onmouseover="this.style.color='white'">每日签到</a>
                                                         </div>
                                                     </div>
 
@@ -778,6 +782,13 @@
 
                                     <!--主要内容 main-->
                                     <!--<table summary="forum_2" cellspacing="0" cellpadding="0" id="threadlisttableid">-->
+                                    <if condition="count($article) eq 0">
+                                        <div class="a-feed" style="position: relative;height: 100px">
+                                            <center style="line-height: 100px;">
+                                                暂时没有好友,快去添加好友吧
+                                            </center>
+                                        </div>
+                                    </if>
                                         <volist name="article" id="data" key="k">
                                             <!--多个说说循环-->
                                                     <div class="a-feed" style="position: relative;">
@@ -785,7 +796,7 @@
                                                             <div class="user-avatar">
 
                                                                 <a href="{{:U('Homepage/index',array('u_id'=>$data['u_id']))}}" c="1" class="avatar" mid="card_8477">
-                                                                    <img src="__PUBLIC__/upload/{{$data.head_image}}" width="50" title="{{$data.username}}">
+                                                                    <img src="__PUBLIC__/upload/{{$data.head_image}}" width="50" height="50" title="{{$data.username}}">
                                                                 </a>
                                                             </div>
                                                             <div class="feed-user-info cl">
@@ -1390,7 +1401,7 @@
             }
 
             // websocket
-            var ws = new WebSocket('ws://127.0.0.1:8282');
+            var ws = new WebSocket('ws://192.168.20.144:8282');
             // 链接成功时
             ws.onopen = function(){
                 var uid = '{{$user.id}}';
