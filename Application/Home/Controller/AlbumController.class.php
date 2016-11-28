@@ -15,6 +15,9 @@ class AlbumController extends BaseController
         $image =$album->relation(true)->where(array('u_id'=>session('id')))->select();
 //        echo "<pre>";
 //        var_dump($image);die;
+        //消息提醒
+        $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+        $this->assign('remind',$remind);
         $link = M('flink')->where(array('show'=>1))->select();
         $this->assign('link',$link);
         $this->assign('date',$date);
@@ -33,7 +36,9 @@ class AlbumController extends BaseController
         //照片信息
         $image = M('image')->where(array('album_id'=>$_GET['id']))->select();
         $album = M('album')->where(array('id'=>$_GET['id']))->select();
-
+        //消息提醒
+        $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+        $this->assign('remind',$remind);
         $link = M('flink')->where(array('show'=>1))->select();
         $this->assign('link',$link);
         $this->assign('date',$date);

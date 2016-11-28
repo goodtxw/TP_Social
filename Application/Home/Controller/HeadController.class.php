@@ -12,6 +12,9 @@ class HeadController extends BaseController
         $personal_info = M('user')->where(array('id'=>session('id')))->select();
         //用户注册天数 intval((当前时间-注册时间)/一天的秒数) 一天86400秒
         $date = intval((time()-$personal_info[0]['create_time'])/86400);
+        //消息提醒
+        $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+        $this->assign('remind',$remind);
         $link = M('flink')->where(array('show'=>1))->select();
         $this->assign('link',$link);
         $this->assign('date',$date);

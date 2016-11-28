@@ -10,11 +10,13 @@ class FriendaskController extends BaseController
         $date = intval((time()-$personal_info[0]['create_time'])/86400);
         $link = M('flink')->where(array('show'=>1))->select();
 
-        $request = M('friend_request')->field('r.*,u.*')->table('rr_friend_request r,rr_user u')->where('r.r_id=u.id')->where(array('u_id'=>session('id'),'agree'=>0))->select();
+        $request = M('friend_request')->field('r.*,u.*')->table('rr_friend_request r,rr_user u')->where('r.u_id=u.id')->where(array('r_id'=>session('id'),'agree'=>0))->select();
 
 //        echo "<pre>";
 //        var_dump($request);die;
-
+        //消息提醒
+        $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+        $this->assign('remind',$remind);
         $this->assign('request',$request);
         $this->assign('link',$link);
         $this->assign('date',$date);

@@ -23,6 +23,9 @@ class PersonaldataController extends BaseController
         //学校信息
         $school = M('school')->where(array('u_id'=>session('id')))->select();
         $link = M('flink')->where(array('show'=>1))->select();
+        //消息提醒
+        $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+        $this->assign('remind',$remind);
         $this->assign('link',$link);
         $this->assign('school',$school[0]);
         $this->assign('date',$date);

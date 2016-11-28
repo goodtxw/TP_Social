@@ -31,6 +31,9 @@ class FriendlistController extends BaseController
 
 //        echo "<pre>";
 //        var_dump($fg_list);die;
+        //消息提醒
+        $remind = M('friend_request')->where(array('r_id'=>session('id'),'agree'=>0))->count();
+        $this->assign('remind',$remind);
         $link = M('flink')->where(array('show'=>1))->select();
         $this->assign('link',$link);
         $this->assign('count',$count2);
